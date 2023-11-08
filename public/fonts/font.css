@@ -1,0 +1,13 @@
+@font-face {
+	font-family: "EurostileExtended-Roman-DTC";
+	src: url(EurostileExtended-Roman-DTC.ttf) format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "readnumber";
+	src: url(roadnumberscyr_regular.otf) format('otf');
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,0 +1,316 @@
+<div class="col-md-12">
+    <div class="card">
+
+
+        <div class="col-12">
+            <div class="card-body">
+                <h5 class="card-title text-center">Region list</h5>
+                <form action="">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-sm-12">
+                            <div class="row">
+                                <div class="mb-3 text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modal-create-{{_id}}">
+                                        Add Region
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade text-start" id="modal-create-{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                                                        Region</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form class="col-12 m-auto" action="/admin/region/" method="post"
+                                                    id="create-region">
+                                                    <div class="modal-body row">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Region Name</label>
+                                                            <input required type="text" class="form-control"
+                                                                placeholder="Region name" name="name" value="">
+                                                        </div>
+                                                        <div class="mb-3" id="numberInputs">
+                                                            <label class="form-label">Region Numbers</label>
+                                                        </div>
+
+                                                        <div class="text-center">
+                                                            <button type="button" id="addNumber"
+                                                                class="btn btn-info">Add Number</button>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Region Description</label>
+                                                            <textarea required type="text" class="form-control"
+                                                                placeholder="Region name" name="description"
+                                                                value=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Back</button>
+                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                    </div>
+                                                </form>
+
+
+
+                                                <script>
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        const numberInputsContainer = document.getElementById('numberInputs');
+                                                        const addNumberButton = document.getElementById('addNumber');
+
+                                                        addNumberButton.onclick = function () {
+                                                            const inputWrapper = document.createElement('div');
+                                                            inputWrapper.className = 'input-group mb-2';
+
+                                                            const numberInput = document.createElement('input');
+                                                            numberInput.type = 'number';
+                                                            numberInput.className = 'form-control';
+                                                            numberInput.placeholder = 'Region number';
+                                                            numberInput.name = 'number';
+
+                                                            const deleteButton = document.createElement('button');
+                                                            deleteButton.type = 'button';
+                                                            deleteButton.className = 'btn btn-danger';
+                                                            deleteButton.textContent = 'X';
+                                                            deleteButton.onclick = function () {
+                                                                numberInputsContainer.removeChild(inputWrapper);
+                                                            };
+
+                                                            inputWrapper.appendChild(numberInput);
+                                                            inputWrapper.appendChild(deleteButton);
+                                                            numberInputsContainer.appendChild(inputWrapper);
+                                                        };
+
+                                                        document.querySelector('form').addEventListener('submit', function (e) {
+                                                            e.preventDefault(); // formaning default submit hodisasini to'xtatish
+
+                                                            // Endi formani dasturiy ravishda yuborish
+                                                            e.target.action = '/admin/region'
+                                                            e.target.method = 'POST'
+                                                            e.target.submit();
+                                                        });
+
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Region name</th>
+                                <th scope="col">Region numbers</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Date</th>
+                                <th scope="col" class="text-center">O'zgartirish</th>
+                                <th scope="col" class="text-center">O'chirish</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if region}}
+                            {{#each region}}
+                            <tr id="{{_id}}">
+                                <th scope="row">{{@index}}</th>
+                                <td>{{name}}</td>
+                                <td>
+                                    {{#each numbers}}
+                                    {{number}} - 
+                                    {{/each}}
+                                </td>
+                                <td>{{description}}</td>
+                                <td>{{formatDate createdAt}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modal-update-{{_id}}">
+                                        <i class="ri-draft-fill"></i>
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                                                        Region</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form class="col-12 m-auto update-form" action="/admin/region/update/{{_id}}"
+                                                    method="post" data-region-id="{{_id}}">
+                                                    <div class="modal-body row">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Region Name</label>
+                                                            <input required type="text" class="form-control"
+                                                                placeholder="Region name" name="name" value="{{name}}">
+                                                        </div>
+                                                        <div class="mb-3" id="numberInputs-{{_id}}">
+                                                            <label class="form-label">Region Numbers</label>
+                                                            {{#each numbers}}
+                                                            <div class="input-group mb-2">
+                                                                <input type="number" placeholder="Region number"
+                                                                    class="form-control" name="number"
+                                                                    value="{{number}}">
+                                                                <button class="btn btn-danger" type="button"
+                                                                    onclick="removeNumber(this)">X</button>
+                                                            </div>
+                                                            {{/each}}
+                                                        </div>
+
+                                                        <div class="text-center">
+                                                            <button type="button" class="btn btn-info addNumber"
+                                                                data-id="{{_id}}">Add Number</button>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Region Description</label>
+                                                            <textarea required type="text" class="form-control"
+                                                                placeholder="Region name" name="description"
+                                                                value="">{{description}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Back</button>
+                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                    </div>
+                                                </form>
+
+                                                <script>
+
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        const numberInputsContainer = document.getElementById('numberInputs');
+
+                                                        document.querySelectorAll('.addNumber').forEach(function (button) {
+                                                            button.onclick = function () {
+                                                                const regionId = this.getAttribute('data-id');
+                                                                const numberInputsContainer = document.getElementById('numberInputs-' + regionId);
+
+                                                                // Input elementini yaratish
+                                                                const inputWrapper = document.createElement('div');
+                                                                inputWrapper.className = 'input-group mb-2';
+
+                                                                // Raqamli input yaratish
+                                                                const numberInput = document.createElement('input');
+                                                                numberInput.type = 'number';
+                                                                numberInput.className = 'form-control';
+                                                                numberInput.placeholder = 'Region number';
+                                                                numberInput.name = 'number'; // Agar siz serverga bir nechta inputlarni bir array sifatida yubormoqchi bo'lsangiz, 'number[]' deb nomlang.
+
+                                                                // Delete tugmasini yaratish
+                                                                const deleteButton = document.createElement('button');
+                                                                deleteButton.type = 'button';
+                                                                deleteButton.className = 'btn btn-danger';
+                                                                deleteButton.textContent = 'X';
+
+                                                                // Delete tugmasi uchun hodisani qo'shish
+                                                                deleteButton.onclick = function () {
+                                                                    // O'zini o'zi va o'zini o'rab turgan divni o'chirish
+                                                                    inputWrapper.remove();
+                                                                };
+
+                                                                // Input va delete buttonni inputWrapper ichiga joylashtirish
+                                                                inputWrapper.appendChild(numberInput);
+                                                                inputWrapper.appendChild(deleteButton);
+
+                                                                // Tuzilgan input groupni numberInputsContainer ichiga qo'shish
+                                                                numberInputsContainer.appendChild(inputWrapper);
+                                                            };
+                                                        });
+
+
+                                                        document.querySelectorAll('.update-form').forEach(function (form) {
+                                                            form.addEventListener('submit', function (e) {
+                                                                e.preventDefault(); // Formaning default submit hodisasini to'xtatish
+
+                                                                // Siz kerakli ma'lumotlarni form elementlaridan olishingiz kerak
+                                                                // Masalan, agar har bir formada o'ziga xos bir ID yoki keyingi URL uchun biron bir ma'lumot kerak bo'lsa
+                                                                const regionId = form.dataset.regionId; // Bu yerda biz formaning data-region-id attributidan foydalanmoqdamiz
+
+                                                                // Endi formani dasturiy ravishda yuborish
+                                                                form.action = `/admin/region/update/${regionId}`;
+                                                                form.method = 'POST';
+
+                                                                form.submit(); // Formani yuborish
+                                                            });
+                                                        });
+
+                                                    });
+                                                    function removeNumber(element) {
+                                                        // Tugma bosilgan elementni o'z ichiga olgan input-group divini topish
+                                                        var inputGroup = element.closest('.input-group');
+                                                        if (inputGroup) {
+                                                            // Ota elementni (numberInputs) o'z ichidan input-group divini o'chirish
+                                                            inputGroup.parentNode.removeChild(inputGroup);
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modal-delete-{{_id}}">
+                                        <i class="ri-delete-bin-fill"></i>
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                                                        Delete Region</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form class="col-12 m-auto" class="forms-sample"
+                                                    action="/admin/region/delete/{{_id}}" method="post">
+                                                    <div class="modal-body">
+                                                        <h5 class="text-primary">Are you right, delete region ?</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Back</button>
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            {{else}}
+                            <tr>
+                                <td colspan="12" class="text-center py-5">
+                                    <h4 class="text-danger">malumotlar yo'q</h4>
+                                </td>
+                            </tr>
+                            {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
