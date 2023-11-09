@@ -1,605 +1,570 @@
 <section class="dashboard">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    {{!-- <h5 class="card-title text-center">Number list</h5> --}}
-                    <div class="col-12 mt-5 mb-3">
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modal-create">
-                                <i class="ri-add-circle-fill"></i>
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade text-start" id="modal-create" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                                Number</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form class="col-12 m-auto update-form" action="/admin/numbers" method="post"
-                                            data-region-id="{{_id}}">
-                                            <div class="modal-body row">
-                                                <div class="mb-3">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Region name</label>
-                                                        <select class="form-select region-select"
-                                                            data-numbers-target="regionNumbersSelect" name="region">
-                                                            <option value="">Choose region</option>
-                                                            {{#each region}}
-                                                            <option value="{{this._id}}">{{this.name}}</option>
-                                                            {{/each}}
-                                                        </select>
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					{{!-- <h5 class="card-title text-center">Number list</h5> --}}
+					<div class="col-12 mt-5 mb-3">
+						<div class="text-center">
+							<!-- Modal -->
+							<div class="modal fade text-start" id="modal-create" tabindex="-1" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-70">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+												Номер</h1>
+											<button type="button" class="btn rounded-1-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
+										</div>
+										<form class="col-12 m-auto update-form" action="/admin/numbers" method="post"
+											data-region-id="{{_id}}">
+											<div class="modal-body row">
+												<div class="mb-3">
+													<div class="mb-3">
+														<label class="form-label">Название региона</label>
+														<select class="form-select region-select" data-numbers-target="regionNumbersSelect"
+															name="region">
+															<option value="">Выберите регион</option>
+															{{#each region}}
+															<option value="{{this._id}}">{{this.name}}</option>
+															{{/each}}
+														</select>
 
-                                                    </div>
-                                                    <label class="form-label">Number</label>
-                                                    <div class="row form-control">
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="letter1">
-                                                            <option value="a">a</option>
-                                                            <option value="в">в</option>
-                                                            <option value="е">е</option>
-                                                            <option value="к">к</option>
-                                                            <option value="м">м</option>
-                                                            <option value="н">н</option>
-                                                            <option value="о">о</option>
-                                                            <option value="р">р</option>
-                                                            <option value="с">с</option>
-                                                            <option value="т">т</option>
-                                                            <option value="у">у</option>
-                                                            <option value="х">х</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="number1">
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="number2">
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="number3">
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="letter2">
-                                                            <option value="a">a</option>
-                                                            <option value="в">в</option>
-                                                            <option value="е">е</option>
-                                                            <option value="к">к</option>
-                                                            <option value="м">м</option>
-                                                            <option value="н">н</option>
-                                                            <option value="о">о</option>
-                                                            <option value="р">р</option>
-                                                            <option value="с">с</option>
-                                                            <option value="т">т</option>
-                                                            <option value="у">у</option>
-                                                            <option value="х">х</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            style="border: none; outline: none" name="letter3">
-                                                            <option value="a">a</option>
-                                                            <option value="в">в</option>
-                                                            <option value="е">е</option>
-                                                            <option value="к">к</option>
-                                                            <option value="м">м</option>
-                                                            <option value="н">н</option>
-                                                            <option value="о">о</option>
-                                                            <option value="р">р</option>
-                                                            <option value="с">с</option>
-                                                            <option value="т">т</option>
-                                                            <option value="у">у</option>
-                                                            <option value="х">х</option>
-                                                        </select>
-                                                        <select class="form-select col" required
-                                                            id="regionNumbersSelect" name="regionNumber"
-                                                            style="border: none; outline: none">
-                                                            <!-- JavaScript orqali to'ldiriladi -->
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Amount</label>
-                                                    <input required type="number" class="form-control"
-                                                        placeholder="Amount" name="amount" value="{{amount}}">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Back</button>
-                                                <button type="submit" class="btn btn-primary">Add</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+													</div>
+													<label class="form-label">Number</label>
+													<div class="row form-control selecting__numbers">
+														<select class="form-select col" required name="letter1">
+															<option value="a">a</option>
+															<option value="в">в</option>
+															<option value="е">е</option>
+															<option value="к">к</option>
+															<option value="м">м</option>
+															<option value="н">н</option>
+															<option value="о">о</option>
+															<option value="р">р</option>
+															<option value="с">с</option>
+															<option value="т">т</option>
+															<option value="у">у</option>
+															<option value="х">х</option>
+														</select>
+														<select class="form-select col" required name="number1">
+															<option value="0">0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+														</select>
+														<select class="form-select col" required name="number2">
+															<option value="0">0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+														</select>
+														<select class="form-select col" required name="number3">
+															<option value="0">0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+														</select>
+														<select class="form-select col" required name="letter2">
+															<option value="a">a</option>
+															<option value="в">в</option>
+															<option value="е">е</option>
+															<option value="к">к</option>
+															<option value="м">м</option>
+															<option value="н">н</option>
+															<option value="о">о</option>
+															<option value="р">р</option>
+															<option value="с">с</option>
+															<option value="т">т</option>
+															<option value="у">у</option>
+															<option value="х">х</option>
+														</select>
+														<select class="form-select col" required name="letter3">
+															<option value="a">a</option>
+															<option value="в">в</option>
+															<option value="е">е</option>
+															<option value="к">к</option>
+															<option value="м">м</option>
+															<option value="н">н</option>
+															<option value="о">о</option>
+															<option value="р">р</option>
+															<option value="с">с</option>
+															<option value="т">т</option>
+															<option value="у">у</option>
+															<option value="х">х</option>
+														</select>
+														<select class="form-select col" required id="regionNumbersSelect" name="regionNumber">
+															<!-- JavaScript orqali to'ldiriladi -->
+														</select>
+													</div>
+												</div>
+												<div class="mb-3">
+													<label class="form-label">Amount</label>
+													<input required type="number" class="form-control" placeholder="Amount" name="amount"
+														value="{{amount}}">
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn rounded-1 btn-secondary" data-bs-dismiss="modal">Back</button>
+												<button type="submit" class="btn rounded-1 btn-primary">Add</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                    <div class="col-12 mb-5 py-3">
-                        <div class="big-number">
-                            <div class="car__number">
-                                <h1 class="harf wrap-item-group"><span data-bs-value="letter1"
-                                        class="num__content ac__class">{{#if
-                                        query.letter1}}{{query.letter1}}{{else}}*{{/if}}</span>
-                                    <ul class="number_menu">
-                                        <li>a</li>
-                                        <li>в</li>
-                                        <li>е</li>
-                                        <li>к</li>
-                                        <li>м</li>
-                                        <li>н</li>
-                                        <li>о</li>
-                                        <li>р</li>
-                                        <li>с</li>
-                                        <li>т</li>
-                                        <li>у</li>
-                                        <li>х</li>
-                                    </ul>
-                                </h1>
-                                <div class="min-number">
-                                    <h1 class="car__number-one wrap-item-group"><span data-bs-value="number1"
-                                            class="num__content"> {{#if query.number1}}{{query.number1}}{{else}}*{{/if}}
-                                        </span>
-                                        <ul class="number_menu">
-                                            <li>0</li>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                        </ul>
-                                    </h1>
-                                    <h1 class="car__number-two wrap-item-group"><span data-bs-value="number2"
-                                            class="num__content">{{#if
-                                            query.number2}}{{query.number2}}{{else}}*{{/if}}</span>
-                                        <ul class="number_menu">
-                                            <li>0</li>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                        </ul>
-                                    </h1>
-                                    <h1 class="car__number-three wrap-item-group"><span data-bs-value="number3"
-                                            class="num__content">{{#if
-                                            query.number3}}{{query.number3}}{{else}}*{{/if}}</span>
-                                        <ul class="number_menu">
-                                            <li>0</li>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                        </ul>
-                                    </h1>
-                                </div>
-                                <h1 class="harf wrap-item-group"><span data-bs-value="letter2"
-                                        class="num__content ac__class">{{#if
-                                        query.letter2}}{{query.letter2}}{{else}}*{{/if}}</span>
-                                    <ul class="number_menu">
-                                        <li>а</li>
-                                        <li>в</li>
-                                        <li>е</li>
-                                        <li>к</li>
-                                        <li>м</li>
-                                        <li>н</li>
-                                        <li>о</li>
-                                        <li>р</li>
-                                        <li>с</li>
-                                        <li>т</li>
-                                        <li>у</li>
-                                        <li>х</li>
-                                    </ul>
-                                </h1>
-                                <h1 class="harf wrap-item-group"><span data-bs-value="letter3"
-                                        class="num__content ac__class">{{#if
-                                        query.letter3}}{{query.letter3}}{{else}}*{{/if}}</span>
-                                    <ul class="number_menu">
-                                        <li>а</li>
-                                        <li>в</li>
-                                        <li>е</li>
-                                        <li>к</li>
-                                        <li>м</li>
-                                        <li>н</li>
-                                        <li>о</li>
-                                        <li>р</li>
-                                        <li>с</li>
-                                        <li>т</li>
-                                        <li>у</li>
-                                        <li>х</li>
-                                    </ul>
-                                </h1>
-                            </div>
-                            <div class="big-number__countr wrap-item-group">
-                                <h1 class="top-num wrap-item-group"><span data-bs-value="regionNumber"
-                                        class="num__content ac__class">{{#if
-                                        query.regionNumber}}{{query.regionNumber}}{{else}}*{{/if}}</span>
-                                    <ul class="number_menu">
-                                        <li>01</li>
-                                        <li>02</li>
-                                        <li>03</li>
-                                        <li>04</li>
-                                        <li>05</li>
-                                        <li>06</li>
-                                        <li>07</li>
-                                        <li>08</li>
-                                        <li>09</li>
-                                        <li>10</li>
-                                        <li>11</li>
-                                    </ul>
-                                </h1>
-                                <div class="countr">
-                                    <h1>rus</h1><img src="img/icons/ru-flag.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="number_menu--close"></div><!-- numbers table start -->
-                        <div class="text-center mt-2">
-                            <button class="btn btn-primary" id="filter-btn">Filter</button>
-                            <a href="/admin/numbers" class="btn btn-danger">Clear Filter</a>
-                        </div>
-                    </div>
+					<div class="col-12 mb-5 py-3">
+						<div class="big-number">
+							<div class="car__number">
+								<h1 class="harf wrap-item-group"><span data-bs-value="letter1" class="num__content ac__class">{{#if
+										query.letter1}}{{query.letter1}}{{else}}*{{/if}}</span>
+									<ul class="number_menu">
+										<li>a</li>
+										<li>в</li>
+										<li>е</li>
+										<li>к</li>
+										<li>м</li>
+										<li>н</li>
+										<li>о</li>
+										<li>р</li>
+										<li>с</li>
+										<li>т</li>
+										<li>у</li>
+										<li>х</li>
+									</ul>
+								</h1>
+								<div class="min-number">
+									<h1 class="car__number-one wrap-item-group"><span data-bs-value="number1" class="num__content"> {{#if
+											query.number1}}{{query.number1}}{{else}}*{{/if}}
+										</span>
+										<ul class="number_menu">
+											<li>0</li>
+											<li>1</li>
+											<li>2</li>
+											<li>3</li>
+											<li>4</li>
+											<li>5</li>
+											<li>6</li>
+											<li>7</li>
+											<li>8</li>
+											<li>9</li>
+										</ul>
+									</h1>
+									<h1 class="car__number-two wrap-item-group"><span data-bs-value="number2" class="num__content">{{#if
+											query.number2}}{{query.number2}}{{else}}*{{/if}}</span>
+										<ul class="number_menu">
+											<li>0</li>
+											<li>1</li>
+											<li>2</li>
+											<li>3</li>
+											<li>4</li>
+											<li>5</li>
+											<li>6</li>
+											<li>7</li>
+											<li>8</li>
+											<li>9</li>
+										</ul>
+									</h1>
+									<h1 class="car__number-three wrap-item-group"><span data-bs-value="number3" class="num__content">{{#if
+											query.number3}}{{query.number3}}{{else}}*{{/if}}</span>
+										<ul class="number_menu">
+											<li>0</li>
+											<li>1</li>
+											<li>2</li>
+											<li>3</li>
+											<li>4</li>
+											<li>5</li>
+											<li>6</li>
+											<li>7</li>
+											<li>8</li>
+											<li>9</li>
+										</ul>
+									</h1>
+								</div>
+								<h1 class="harf wrap-item-group"><span data-bs-value="letter2" class="num__content ac__class">{{#if
+										query.letter2}}{{query.letter2}}{{else}}*{{/if}}</span>
+									<ul class="number_menu">
+										<li>а</li>
+										<li>в</li>
+										<li>е</li>
+										<li>к</li>
+										<li>м</li>
+										<li>н</li>
+										<li>о</li>
+										<li>р</li>
+										<li>с</li>
+										<li>т</li>
+										<li>у</li>
+										<li>х</li>
+									</ul>
+								</h1>
+								<h1 class="harf wrap-item-group"><span data-bs-value="letter3" class="num__content ac__class">{{#if
+										query.letter3}}{{query.letter3}}{{else}}*{{/if}}</span>
+									<ul class="number_menu">
+										<li>а</li>
+										<li>в</li>
+										<li>е</li>
+										<li>к</li>
+										<li>м</li>
+										<li>н</li>
+										<li>о</li>
+										<li>р</li>
+										<li>с</li>
+										<li>т</li>
+										<li>у</li>
+										<li>х</li>
+									</ul>
+								</h1>
+							</div>
+							<div class="big-number__countr wrap-item-group">
+								<h1 class="top-num wrap-item-group"><span data-bs-value="regionNumber"
+										class="num__content ac__class">{{#if
+										query.regionNumber}}{{query.regionNumber}}{{else}}*{{/if}}</span>
+									<ul class="number_menu">
+										<li>01</li>
+										<li>02</li>
+										<li>03</li>
+										<li>04</li>
+										<li>05</li>
+										<li>06</li>
+										<li>07</li>
+										<li>08</li>
+										<li>09</li>
+										<li>10</li>
+										<li>11</li>
+									</ul>
+								</h1>
+								<div class="countr">
+									<h1>rus</h1><img src="/img/icons/ru-flag.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="number_menu--close"></div><!-- numbers table start -->
+						<div class="text-center mt-2 gx-2">
+							<button type="button" class="btn rounded-1 btn-primary" data-bs-toggle="modal"
+								data-bs-target="#modal-create">Добавлять </button>
+							<button class="btn rounded-1 btn-primary" id="filter-btn">Filter</button>
+							<a href="/admin/numbers" class="btn rounded-1 btn-danger">Clear Filter</a>
+						</div>
+					</div>
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover align-middle">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Number</th>
-                                    <th scope="col">Region</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col" class="text-center">O'zgartirish</th>
-                                    <th scope="col" class="text-center">O'chirish</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#if number}}
-                                {{#each number}}
-                                <tr id="{{_id}}">
-                                    <th scope="row">{{@index}}</th>
-                                    <td>
-                                        <div class="col-5">
-                                            <div class="item-car__number">
-                                                <div class="number__left">
-                                                    <h2>{{letter1}}</h2>
-                                                    <div class="item-min__number">
-                                                        <h1>{{number1}}</h1>
-                                                        <h1>{{number2}}</h1>
-                                                        <h1>{{number3}}</h1>
-                                                    </div>
-                                                    <h2>{{letter1}}{{letter2}}</h2>
-                                                </div>
-                                                <div class="number__right">
-                                                    <h2>{{regionNumber}}</h2>
-                                                    <div class="right-country">
-                                                        <h4>rus</h4><img src="/img/icons/ru-flag.svg" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{region.name}}
-                                    </td>
-                                    <td>{{amount}} ₽</td>
-                                    <td>{{formatDate createdAt}}</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update-{{_id}}">
-                                            <i class="ri-draft-fill"></i>
-                                        </button>
-                                        <!-- Modal -->
-                                        <div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                                            Number</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <form class="col-12 m-auto update-form"
-                                                        action="/admin/numbers/update/{{_id}}" method="post"
-                                                        data-region-id="{{_id}}">
-                                                        <div class="modal-body row">
-                                                            <div class="mb-3">
-                                                                <div class="mb-3">
-                                                                    <label class="form-label">Region name</label>
-                                                                    <select class="form-select region-select"
-                                                                        data-numbers-target="regionNumber-{{_id}}"
-                                                                        name="region">
-                                                                        <option value="{{region._id}}">{{region.name}}
-                                                                        </option>
-                                                                        {{#each ../ region}}
-                                                                        <option value="{{this._id}}">{{this.name}}
-                                                                        </option>
-                                                                        {{/each}}
-                                                                    </select>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover align-middle">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Номер</th>
+									<th scope="col">Регион</th>
+									<th scope="col">Суммы</th>
+									<th scope="col">Дата</th>
+									<th scope="col" class="text-center">Изменять</th>
+									<th scope="col" class="text-center">Удалить</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#if number}}
+								{{#each number}}
+								<tr id="{{_id}}">
+									<th scope="row">{{@index}}</th>
+									<td>
+										<div class="col-5">
+											<div class="item-car__number">
+												<div class="number__left">
+													<h2>{{letter1}}</h2>
+													<div class="item-min__number">
+														<h1>{{number1}}</h1>
+														<h1>{{number2}}</h1>
+														<h1>{{number3}}</h1>
+													</div>
+													<h2>{{letter1}}{{letter2}}</h2>
+												</div>
+												<div class="number__right">
+													<h2>{{regionNumber}}</h2>
+													<div class="right-country">
+														<h4>rus</h4><img src="/img/icons/ru-flag.svg" alt="">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+									<td>
+										{{region.name}}
+									</td>
+									<td>{{amount}} ₽</td>
+									<td>{{formatDate createdAt}}</td>
+									<td class="text-center">
+										<button type="button" class="btn rounded-1 btn-primary" data-bs-toggle="modal"
+											data-bs-target="#modal-update-{{_id}}">
+											Изменять
+										</button>
+										<!-- Modal -->
+										<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog modal-70">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+															Номер</h1>
+														<button type="button" class="btn rounded-1-close" data-bs-dismiss="modal"
+															aria-label="Close">
+															<img src="/img/icons/close.svg" alt=""></button>
+													</div>
+													<form class="col-12 m-auto update-form" action="/admin/numbers/update/{{_id}}" method="post"
+														data-region-id="{{_id}}">
+														<div class="modal-body row">
+															<div class="mb-3">
+																<div class="mb-3">
+																	<label class="form-label">Название региона</label>
+																	<select class="form-select region-select" data-numbers-target="regionNumber-{{_id}}"
+																		name="region">
+																		<option value="{{region._id}}">{{region.name}}
+																		</option>
+																		{{#each ../ region}}
+																		<option value="{{this._id}}">{{this.name}}
+																		</option>
+																		{{/each}}
+																	</select>
+																</div>
+																<label class="form-label">Номер</label>
+																<div class="row form-control selecting__numbers">
+																	<select class="form-select col" required name="letter1">
+																		<option value="{{letter1}}" selected>{{letter1}}
+																		</option>
+																		<option value="a">a</option>
+																		<option value="в">в</option>
+																		<option value="е">е</option>
+																		<option value="к">к</option>
+																		<option value="м">м</option>
+																		<option value="н">н</option>
+																		<option value="о">о</option>
+																		<option value="р">р</option>
+																		<option value="с">с</option>
+																		<option value="т">т</option>
+																		<option value="у">у</option>
+																		<option value="х">х</option>
+																	</select>
+																	<select class="form-select col" required name="number1">
+																		<option value="{{number1}}" selected>{{number1}}
+																		</option>
+																		<option value="0">0</option>
+																		<option value="1">1</option>
+																		<option value="2">2</option>
+																		<option value="3">3</option>
+																		<option value="4">4</option>
+																		<option value="5">5</option>
+																		<option value="6">6</option>
+																		<option value="7">7</option>
+																		<option value="8">8</option>
+																		<option value="9">9</option>
+																	</select>
+																	<select class="form-select col" required name="number2">
+																		<option value="{{number2}}" selected>{{number2}}
+																		</option>
+																		<option value="0">0</option>
+																		<option value="1">1</option>
+																		<option value="2">2</option>
+																		<option value="3">3</option>
+																		<option value="4">4</option>
+																		<option value="5">5</option>
+																		<option value="6">6</option>
+																		<option value="7">7</option>
+																		<option value="8">8</option>
+																		<option value="9">9</option>
+																	</select>
+																	<select class="form-select col" required name="number3">
+																		<option value="{{number3}}" selected>{{number3}}
+																		</option>
+																		<option value="0">0</option>
+																		<option value="1">1</option>
+																		<option value="2">2</option>
+																		<option value="3">3</option>
+																		<option value="4">4</option>
+																		<option value="5">5</option>
+																		<option value="6">6</option>
+																		<option value="7">7</option>
+																		<option value="8">8</option>
+																		<option value="9">9</option>
+																	</select>
+																	<select class="form-select col" required name="letter2">
+																		<option value="{{letter2}}" selected>{{letter2}}
+																		</option>
+																		<option value="a">a</option>
+																		<option value="в">в</option>
+																		<option value="е">е</option>
+																		<option value="к">к</option>
+																		<option value="м">м</option>
+																		<option value="н">н</option>
+																		<option value="о">о</option>
+																		<option value="р">р</option>
+																		<option value="с">с</option>
+																		<option value="т">т</option>
+																		<option value="у">у</option>
+																		<option value="х">х</option>
+																	</select>
+																	<select class="form-select col" required name="letter3">
+																		<option value="{{letter3}}" selected>{{letter3}}
+																		</option>
+																		<option value="a">a</option>
+																		<option value="в">в</option>
+																		<option value="е">е</option>
+																		<option value="к">к</option>
+																		<option value="м">м</option>
+																		<option value="н">н</option>
+																		<option value="о">о</option>
+																		<option value="р">р</option>
+																		<option value="с">с</option>
+																		<option value="т">т</option>
+																		<option value="у">у</option>
+																		<option value="х">х</option>
+																	</select>
+																	<select class="form-select col" required id="regionNumber-{{_id}}"
+																		name="regionNumber">
 
-                                                                </div>
-                                                                <label class="form-label">Number</label>
-                                                                <div class="row form-control">
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="letter1">
-                                                                        <option value="{{letter1}}" selected>{{letter1}}
-                                                                        </option>
-                                                                        <option value="a">a</option>
-                                                                        <option value="в">в</option>
-                                                                        <option value="е">е</option>
-                                                                        <option value="к">к</option>
-                                                                        <option value="м">м</option>
-                                                                        <option value="н">н</option>
-                                                                        <option value="о">о</option>
-                                                                        <option value="р">р</option>
-                                                                        <option value="с">с</option>
-                                                                        <option value="т">т</option>
-                                                                        <option value="у">у</option>
-                                                                        <option value="х">х</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="number1">
-                                                                        <option value="{{number1}}" selected>{{number1}}
-                                                                        </option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="number2">
-                                                                        <option value="{{number2}}" selected>{{number2}}
-                                                                        </option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="number3">
-                                                                        <option value="{{number3}}" selected>{{number3}}
-                                                                        </option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="letter2">
-                                                                        <option value="{{letter2}}" selected>{{letter2}}
-                                                                        </option>
-                                                                        <option value="a">a</option>
-                                                                        <option value="в">в</option>
-                                                                        <option value="е">е</option>
-                                                                        <option value="к">к</option>
-                                                                        <option value="м">м</option>
-                                                                        <option value="н">н</option>
-                                                                        <option value="о">о</option>
-                                                                        <option value="р">р</option>
-                                                                        <option value="с">с</option>
-                                                                        <option value="т">т</option>
-                                                                        <option value="у">у</option>
-                                                                        <option value="х">х</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        style="border: none; outline: none"
-                                                                        name="letter3">
-                                                                        <option value="{{letter3}}" selected>{{letter3}}
-                                                                        </option>
-                                                                        <option value="a">a</option>
-                                                                        <option value="в">в</option>
-                                                                        <option value="е">е</option>
-                                                                        <option value="к">к</option>
-                                                                        <option value="м">м</option>
-                                                                        <option value="н">н</option>
-                                                                        <option value="о">о</option>
-                                                                        <option value="р">р</option>
-                                                                        <option value="с">с</option>
-                                                                        <option value="т">т</option>
-                                                                        <option value="у">у</option>
-                                                                        <option value="х">х</option>
-                                                                    </select>
-                                                                    <select class="form-select col" required
-                                                                        id="regionNumber-{{_id}}" name="regionNumber"
-                                                                        style="border: none; outline: none">
+																		<option value="{{regionNumber}}" selected>
+																			{{regionNumber}}</option>
 
-                                                                        <option value="{{regionNumber}}" selected>
-                                                                            {{regionNumber}}</option>
+																		{{#each region.numbers}}
+																		<option value="{{number}}">
+																			{{number}}</option>
+																		{{/each}}
 
-                                                                        {{#each region.numbers}}
-                                                                            <option value="{{number}}">
-                                                                            {{number}}</option>
-                                                                        {{/each}}
+																		<!-- JavaScript orqali to'ldiriladi -->
+																	</select>
+																</div>
+															</div>
+															<div class="mb-3">
+																<label class="form-label">Суммы</label>
+																<input required type="number" class="form-control" placeholder="Amount" name="amount"
+																	value="{{amount}}">
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn rounded-1 btn-secondary"
+																data-bs-dismiss="modal">Back</button>
+															<button type="submit" class="btn rounded-1 btn-primary">Add</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</td>
+									<td class="text-center">
+										<!-- Button trigger modal -->
+										<button type="button" class="btn rounded-1 btn-danger" data-bs-toggle="modal"
+											data-bs-target="#modal-delete-{{_id}}">
+											Удалить
+										</button>
+										<!-- Modal -->
+										<div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+															Удалить номер</h1>
+														<button type="button" class="btn rounded-1-close" data-bs-dismiss="modal"
+															aria-label="Close"></button>
+													</div>
+													<form class="col-12 m-auto" class="forms-sample" action="/admin/numbers/delete/{{_id}}"
+														method="post">
+														<div class="modal-body">
+															<h5 class="text-primary">Вы хотите удалить номер?</h5>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn rounded-1 btn-secondary"
+																data-bs-dismiss="modal">Back</button>
+															<button type="submit" class="btn rounded-1 btn-danger">Delete</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								{{/each}}
+								{{else}}
+								<tr>
+									<td colspan="12" class="text-center py-5">
+										<h4 class="text-danger">No data filter</h4>
+									</td>
+								</tr>
+								{{/if}}
+							</tbody>
+						</table>
+					</div>
 
-                                                                        <!-- JavaScript orqali to'ldiriladi -->
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Amount</label>
-                                                                <input required type="number" class="form-control"
-                                                                    placeholder="Amount" name="amount"
-                                                                    value="{{amount}}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Back</button>
-                                                            <button type="submit" class="btn btn-primary">Add</button>
-                                                        </div>
-                                                    </form>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modal-delete-{{_id}}">
-                                            <i class="ri-delete-bin-fill"></i>
-                                        </button>
-                                        <!-- Modal -->
-                                        <div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                                            Delete Region</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <form class="col-12 m-auto" class="forms-sample"
-                                                        action="/admin/numbers/delete/{{_id}}" method="post">
-                                                        <div class="modal-body">
-                                                            <h5 class="text-primary">Are you right, delete region ?</h5>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Back</button>
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {{/each}}
-                                {{else}}
-                                <tr>
-                                    <td colspan="12" class="text-center py-5">
-                                        <h4 class="text-danger">No data filter</h4>
-                                    </td>
-                                </tr>
-                                {{/if}}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <nav class="pt-3">
-                        <ul class="pagination justify-content-center">
-                            {{#paginate pagination type="previous"}}
-                            <li {{#if disabled}}class="page-item disabled" {{/if}}><a
-                                    href="?page={{n}}&limit={{../ pagination.limit}}" class="page-link"><span
-                                        aria-hidden="true">&laquo;</span></a></li>
-                            {{/paginate}}
-                            {{#paginate pagination type="middle"}}
-                            <li {{#if active}}class="page-item active" {{/if}}><a
-                                    href="?page={{n}}&limit={{../ pagination.limit}}" class="page-link">{{n}}</a></li>
-                            {{/paginate}}
-                            {{#paginate pagination type="next"}}
-                            <li {{#if disabled}}class="page-item disabled" {{/if}}><a
-                                    href="?page={{n}}&limit={{../ pagination.limit}}" class="page-link"><span
-                                        aria-hidden="true">&raquo;</span></a></li>
-                            {{/paginate}}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+					<nav class="pt-3">
+						<ul class="pagination justify-content-center">
+							{{#paginate pagination type="previous"}}
+							<li {{#if disabled}}class="page-item disabled" {{/if}}><a
+									href="?page={{n}}&limit={{../ pagination.limit}}" class="page-link"><span
+										aria-hidden="true">&laquo;</span></a></li>
+							{{/paginate}}
+							{{#paginate pagination type="middle"}}
+							<li {{#if active}}class="page-item active" {{/if}}><a href="?page={{n}}&limit={{../ pagination.limit}}"
+									class="page-link">{{n}}</a></li>
+							{{/paginate}}
+							{{#paginate pagination type="next"}}
+							<li {{#if disabled}}class="page-item disabled" {{/if}}><a
+									href="?page={{n}}&limit={{../ pagination.limit}}" class="page-link"><span
+										aria-hidden="true">&raquo;</span></a></li>
+							{{/paginate}}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-
 <script>
-    // JavaScript
-    document.addEventListener('DOMContentLoaded', function () {
-        // Region select elementlariga eventListener qo'shish
-        document.querySelectorAll('.region-select').forEach(function (selectElement) {
-            selectElement.addEventListener('change', function () {
-                var selectedRegionId = this.value;
-                var targetSelectId = this.getAttribute('data-numbers-target');
-                updateNumbersSelect(selectedRegionId, targetSelectId);
-            });
-        });
-    });
+	// JavaScript
+	document.addEventListener('DOMContentLoaded', function () {
+		// Region select elementlariga eventListener qo'shish
+		document.querySelectorAll('.region-select').forEach(function (selectElement) {
+			selectElement.addEventListener('change', function () {
+				var selectedRegionId = this.value;
+				var targetSelectId = this.getAttribute('data-numbers-target');
+				updateNumbersSelect(selectedRegionId, targetSelectId);
+			});
+		});
+	});
 
-    function updateNumbersSelect(regionId, targetSelectId) {
-        // API orqali ma'lumotlarni olish va target selectni yangilash
-        fetch('/api/region/' + regionId)
-            .then(response => response.json())
-            .then(data => {
-                var targetSelect = document.getElementById(targetSelectId);
-                targetSelect.innerHTML = ''; // Avvalgi optionlarni tozalaymiz
-                data.numbers.forEach(function (number) {
-                    var option = document.createElement('option');
-                    option.value = number.number;
-                    option.textContent = number.number;
-                    targetSelect.appendChild(option);
-                });
-            })
-            .catch(error => console.error('Error:', error));
-    }
+	function updateNumbersSelect(regionId, targetSelectId) {
+		// API orqali ma'lumotlarni olish va target selectni yangilash
+		fetch('/api/region/' + regionId)
+			.then(response => response.json())
+			.then(data => {
+				var targetSelect = document.getElementById(targetSelectId);
+				targetSelect.innerHTML = ''; // Avvalgi optionlarni tozalaymiz
+				data.numbers.forEach(function (number) {
+					var option = document.createElement('option');
+					option.value = number.number;
+					option.textContent = number.number;
+					targetSelect.appendChild(option);
+				});
+			})
+			.catch(error => console.error('Error:', error));
+	}
 
 </script>
