@@ -1,4 +1,4 @@
-.btn {
+.btn-def {
 	border-radius: 20px;
 	border: 0.5px solid #000;
 	background: local;
@@ -11,6 +11,19 @@
 .bg-21422F {
 	background-color: #21422f;
 	color: #fff;
+}
+
+.btn-close {
+	background: local;
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	border: none;
+}
+
+.btn-close img {
+	width: 100%;
+	height: 100%;
 }
 
 .bg-21422F:hover {
@@ -206,20 +219,20 @@ html button {
 	z-index: -1;
 }
 
-nav {
+.header__nav-def {
 	display: none;
 }
 
-nav a.logo {
+.header__nav-def a.logo {
 	width: 124px;
 }
 
-nav a.logo img {
+.header__nav-def a.logo img {
 	width: 100%;
 }
 
 @media (max-width: 850px) {
-	nav {
+	.header__nav-def {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;

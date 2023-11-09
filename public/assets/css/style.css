@@ -364,12 +364,6 @@ a:hover {
 	line-height: 1;
 }
 
-@media (min-width: 1200px) {
-	.logo {
-		width: 280px;
-	}
-}
-
 .logo img {
 	max-height: 26px;
 	margin-right: 6px;
