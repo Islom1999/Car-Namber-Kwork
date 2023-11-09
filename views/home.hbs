@@ -1,12 +1,11 @@
-<section id="home">
+<section id="home" style="background: url('{{header.image}}') right/cover no-repeat !important;">
 	<div class="container">
 		<div class="home-wrap">
-			<h1 class="home-title">ПремиYм сервис по подборY номеров для автомобилей</h1><button type="button"
-				class="btn-def bg-21422F puy-modal__btn home-btn">ЗАКАЗАТЬ</button>
+			<h1 class="home-title">{{header.title}}</h1><button type="button"
+				class="btn-def bg-21422F puy-modal__btn home-btn">{{header.button}}</button>
 		</div>
 		<div class="home__bottom">
-			<p>Мы ценим наших клиентов и обеспечиваем максимально комфортные условия по получению номерных знаков на
-				Ваш автомобиль</p>
+			<p>{{header.description}}</p>
 		</div>
 	</div>
 </section><!-- home end --><!-- plate nomer start -->
@@ -230,38 +229,19 @@
 		<div class="buy-wrap">
 			<div class="buy-wrap__cards">
 				<div class="row g-4">
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card only-img">
-							<div class="card-img"><img src="img/card.png" alt=""></div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card">
-							<h2 class="card-title">срочный выкyп</h2>
-							<p>Вот вам яркий пример современных тенденций — внедрение современных методик однозначно
-								фиксирует необходимость направлений прогрессивного развития. Не следует, однако,
-								забывать, что курс на социально-ориентированный национальный проект в значительной
-								степени обусловливает важность форм воздействия. Таким образом, курс на
-								социально-ориентированный национальный проект позволяет оценить значение позиций,
-								занимаемых участниками в отношении поставленных задач.</p>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card">
-							<h2 class="card-title">срочный выкyп</h2>
-							<p>Вот вам яркий пример современных тенденций — внедрение современных методик однозначно
-								фиксирует необходимость направлений прогрессивного развития. Не следует, однако,
-								забывать, что курс на социально-ориентированный национальный проект в значительной
-								степени обусловливает важность форм воздействия. Таким образом, курс на
-								социально-ориентированный национальный проект позволяет оценить значение позиций,
-								занимаемых участниками в отношении поставленных задач.</p>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card only-img">
-							<div class="card-img"><img src="img/card.png" alt=""></div>
-						</div>
-					</div>
+                    {{#each content}}
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <div class="wrap__cards-card only-img">
+                                <div class="card-img"><img src="{{image}}" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <div class="wrap__cards-card">
+                                <h2 class="card-title">{{title}}</h2>
+                                <p>{{description}}</p>
+                            </div>
+                        </div>
+                    {{/each}}
 				</div>
 			</div>
 			<div class="buy-link puy-modal__btn"><img src="img/icons/arrow-top.svg" alt="">
@@ -277,12 +257,12 @@
 				<h1 class="title">остались вопросы?</h1>
 				<p>*поля обязательные для заполнения</p>
 			</div>
-			<form action="" class="contact-wrap__form">
+			<form action="/send/message" class="contact-wrap__form" method="post">
 				<div class="row g-2">
-					<div class="col-xl-4 col-sm-4"><input type="text" placeholder="Ваше имя*" required></div>
-					<div class="col-xl-4 col-sm-4"><input type="number" placeholder="Телефон*" required></div>
-					<div class="col-xl-4 col-sm-4"><input type="email" placeholder="Email" required></div>
-					<div class="col-xl-12"><textarea required placeholder="Задайте Ваш вопрос"></textarea></div>
+					<div class="col-xl-4 col-sm-4"><input type="text" placeholder="Ваше имя*" required name="name"></div>
+					<div class="col-xl-4 col-sm-4"><input type="number" placeholder="Телефон*" required name="phone"></div>
+					<div class="col-xl-4 col-sm-4"><input type="email" placeholder="Email" required name="email"></div>
+					<div class="col-xl-12"><textarea required placeholder="Задайте Ваш вопрос" name="message"></textarea></div>
 					<div class="col-xl-12"><button type="submit" class="form-submit__btn">Отправить заявку</button>
 					</div>
 				</div>

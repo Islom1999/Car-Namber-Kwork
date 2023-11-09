@@ -44,9 +44,22 @@ server.use(express.static( path.join(__dirname, 'public') ))
 helpers(Handlebars) 
 
 // Router configuration
+server.use('/auth', require('./routers/authRouter'))
 server.use('/api', require('./routers/apiRouters'))
-server.use('/admin', require('./routers/adminRouters'))
+server.use('/admin', require('./middleware/auth').authProtected, require('./routers/adminRouters'))
 server.use('/', require('./routers/pagesRouters'))
+
+server.get('/:id', redirect)
+server.get('/:id1/:id2', redirect)
+server.get('/:id1/:id2/:id3', redirect)
+
+function redirect(req,res){
+    try {
+        res.redirect('/')
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 // SERVER LISTENING configuration
 const PORT = process.env.PORT || 5000

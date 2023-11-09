@@ -23,33 +23,39 @@
 
 </head>
 <body>
-    {{#if isAdmin}}
-            {{>adminNavbar}}
-            {{>adminSlidebar}}
 
-            <main id="main" class="main">
-                <div class="pagetitle">
-                    <h1>{{title}}</h1>
-                    <nav>
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin/numbers">Numbers</a></li>
-                        <li class="breadcrumb-item active">{{title}}</li>
-                        </ol>
-                    </nav>
-                </div>
-                <section class="section dashboard">
-                    {{{body}}}
-                </section>
-            </main>
+    {{#if islLoginPage}}
+        {{{body}}}
+    {{else}}
+        {{#if isAdmin}}
+                {{>adminNavbar}}
+                {{>adminSlidebar}}
 
-            {{>adminFooter}}
-            {{>adminJs}}
-            <script src="/js/main.min.admin.js"></script>
-        {{else}}
-            {{>navbar}}
-            {{{body}}}
-            {{>footer}}
-            <script src="/js/main.min.js"></script>
+                <main id="main" class="main">
+                    <div class="pagetitle">
+                        <h1>{{title}}</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin/numbers">Numbers</a></li>
+                            <li class="breadcrumb-item active">{{title}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <section class="section dashboard">
+                        {{{body}}}
+                    </section>
+                </main>
+
+                {{>adminFooter}}
+                {{>adminJs}}
+                <script src="/js/main.min.admin.js"></script>
+            {{else}}
+                {{>navbar}}
+                {{{body}}}
+                {{>footer}}
+                <script src="/js/main.min.js"></script>
+        {{/if}}
     {{/if}}
+
 </body>
 </html>

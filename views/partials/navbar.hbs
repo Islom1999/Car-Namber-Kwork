@@ -13,11 +13,11 @@
 <div class="home-modal">
 	<h1>Выберите, куда удобнее будет отправить список номеров</h1>
 	<div class="home-modal__social">
-		<a href="tel:+79340009797"><img src="img/icons/phone.png" alt=""></a>
-		<a href="https://wa.me/+79340009797" target="https://wa.me/+79340009797">
+		<a href="tel:{{link.phone}}"><img src="img/icons/phone.png" alt=""></a>
+		<a href="{{link.watsapp}}" target="_blank">
 			<img src="img/icons/footer_whatsapp.svg" alt="">
 		</a>
-		<a href="https://t.me/+79340009797" target="https://t.me/+79340009797"><img src="img/telegram.svg" alt="">
+		<a href="{{link.telegram}}" target="_blank"><img src="img/telegram.svg" alt="">
 		</a>
 	</div>
 </div><!-- home modal end --><!-- header start -->
@@ -28,22 +28,28 @@
 				<li class="link-item"><a class="item__link" href="#home">Главная</a></li>
 				<li class="link-item"><a class="item__link" href="#plate">Каталог</a></li>
 				<li class="link-item"><a class="item__link" href="#decoration">Номера</a></li>
-				<li class="link-item"><a class="item__link header-logo" href=""><img src="img/icons/logo.svg" alt=""></a></li>
+				<li class="link-item"><a class="item__link header-logo" href=""><img src="img/icons/logo.svg"
+							alt=""></a></li>
 				<li class="link-item"><a class="item__link" href="#buy">Выкуп</a></li>
 				<li class="link-item"><a class="item__link" href="#contact">Контакты</a></li>
-				<li class="link-item link-contact"><a class="item__link" href="https://t.me/+79340009797"
-						target="https://t.me/+79340009797"><img src="img/icons/tg.svg" alt="">
-					</a><a class="item__link" href="https://wa.me/+79340009797" target="https://wa.me/+79340009797"><img
-							src="img/icons/whatsapp.svg" alt=""></a>
+				<li class="link-item link-contact">
+					<a class="item__link" href="{{link.telegram}}" target="_blank">
+						<img src="img/icons/tg.svg" alt="">
+					</a>
+					<a class="item__link" href="{{link.watsapp}}" target="_blank">
+						<img src="img/icons/whatsapp.svg" alt="">
+					</a>
 				</li>
 			</ul>
 			<nav class="header__nav-def"><a href="" class="logo"><img src="img/icons/logo.svg" alt=""></a>
 				<div class="media-navbar__right">
-					<div class="navbar-right__network"><a href="tel:+79340009797"><img src="img/icons/phone.png" alt=""> </a><a
-							href="https://t.me/+79340009797" target="https://t.me/+79340009797"><img src="img/telegram.svg" alt="">
+					<div class="navbar-right__network"><a href="tel:+79340009797"><img src="img/icons/phone.png" alt="">
+						</a><a href="https://t.me/+79340009797" target="https://t.me/+79340009797"><img
+								src="img/telegram.svg" alt="">
 						</a><a href="https://wa.me/+79340009797" target="https://wa.me/+79340009797"
 							target="https://wa.me/+79340009797"><img src="img/icons/footer_whatsapp.svg" alt=""></a>
-					</div><button type="button" class="bars" onclick="navbar()"><img src="img/icons/bars.svg" alt=""></button>
+					</div><button type="button" class="bars" onclick="navbar()"><img src="img/icons/bars.svg"
+							alt=""></button>
 				</div>
 			</nav>
 		</div>

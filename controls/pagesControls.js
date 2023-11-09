@@ -1,5 +1,9 @@
 const Region = require('../models/region')
 const Number = require('../models/number')
+const Message = require('../models/message')
+const Header = require('../models/header')
+const Content = require('../models/content')
+const Link = require('../models/links')
 
 const getHome = async(req, res) => {
     try {
@@ -15,6 +19,9 @@ const getHome = async(req, res) => {
 			.lean()
 
         const region = await Region.find().lean()
+        const header = await Header.findOne().lean()
+        const content = await Content.find().lean()
+        const link = await Link.findOne().lean()
 
         const regionNumbers = []    
         if(region[0]){
@@ -28,13 +35,27 @@ const getHome = async(req, res) => {
         res.render('home', {
             region,
             regionNumbers,
-            number
+            number,
+            header,
+            content,
+            link
         })
     } catch (error) {
         console.log(error)
     }
 }
 
+const sendMessage = async(req, res) => {
+    try {
+        await Message.create(req.body)
+
+        res.redirect('/')
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
-    getHome
+    getHome,
+    sendMessage
 }

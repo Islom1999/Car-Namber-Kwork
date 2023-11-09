@@ -1,0 +1,89 @@
+<div class="col-md-12">
+	<div class="card">
+
+
+		<div class="col-12">
+			<div class="card-body">
+				<h5 class="card-title text-center">Message List</h5>
+				
+
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover align-middle">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Fullname</th>
+								<th scope="col">Email</th>
+								<th scope="col">Phone</th>
+								<th scope="col">Message</th>
+								<th scope="col">Date</th>
+								<th scope="col" class="text-center">Удалит</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#if message}}
+							{{#each message}}
+							<tr id="{{_id}}">
+								<th scope="row">{{@index}}</th>
+								<td>{{name}}</td>
+								<td>
+									{{email}}
+								</td>
+								<td>
+									<a href="tel:{{phone}}">{{phone}}</a>
+								</td>
+								<td>{{message}}</td>
+								<td>{{formatDate createdAt}}</td>
+								<td class="text-center">
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+										data-bs-target="#modal-delete-{{_id}}">
+										Удалит
+									</button>
+									<!-- Modal -->
+									<div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+														Удалить регион</h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+														<img src="/img/icons/close-dark.svg" alt="">
+													</button>
+												</div>
+												<form class="col-12 m-auto" class="forms-sample" action="/admin/message/delete/{{_id}}"
+													method="post">
+													<div class="modal-body">
+														<h5 class="text-primary">Вы правы, удалить регион?</h5>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+														<button type="submit" class="btn btn-danger">Удалить</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							{{/each}}
+							{{else}}
+							<tr>
+								<td colspan="12" class="text-center py-5">
+									<h4 class="text-danger">malumotlar yo'q</h4>
+								</td>
+							</tr>
+							{{/if}}
+						</tbody>
+					</table>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
