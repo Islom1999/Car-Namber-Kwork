@@ -16,8 +16,9 @@
         <div class="plate-wrap">
             <div class="big-number">
                 <div class="car__number">
-                    <h1 class="harf wrap-item-group"><span class="num__content ac__class">*</span>
+                    <h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter1">*</span>
                         <ul class="number_menu">
+                            <li>*</li>
                             <li>а</li>
                             <li>в</li>
                             <li>е</li>
@@ -33,8 +34,9 @@
                         </ul>
                     </h1>
                     <div class="min-number">
-                        <h1 class="car__number-one wrap-item-group"><span class="num__content">*</span>
+                        <h1 class="car__number-one wrap-item-group"><span class="num__content" data-bs-value="number1">*</span>
                             <ul class="number_menu">
+                                <li>*</li>
                                 <li>0</li>
                                 <li>1</li>
                                 <li>2</li>
@@ -47,8 +49,9 @@
                                 <li>9</li>
                             </ul>
                         </h1>
-                        <h1 class="car__number-two wrap-item-group"><span class="num__content">*</span>
+                        <h1 class="car__number-two wrap-item-group"><span class="num__content" data-bs-value="number2">*</span>
                             <ul class="number_menu">
+                                <li>*</li>
                                 <li>0</li>
                                 <li>1</li>
                                 <li>2</li>
@@ -61,8 +64,9 @@
                                 <li>9</li>
                             </ul>
                         </h1>
-                        <h1 class="car__number-three wrap-item-group"><span class="num__content">*</span>
+                        <h1 class="car__number-three wrap-item-group"><span class="num__content" data-bs-value="number3">*</span>
                             <ul class="number_menu">
+                                <li>*</li>
                                 <li>0</li>
                                 <li>1</li>
                                 <li>2</li>
@@ -76,8 +80,9 @@
                             </ul>
                         </h1>
                     </div>
-                    <h1 class="harf wrap-item-group"><span class="num__content ac__class">*</span>
+                    <h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter2">*</span>
                         <ul class="number_menu">
+                            <li>*</li>
                             <li>а</li>
                             <li>в</li>
                             <li>е</li>
@@ -92,8 +97,9 @@
                             <li>х</li>
                         </ul>
                     </h1>
-                    <h1 class="harf wrap-item-group"><span class="num__content ac__class">*</span>
+                    <h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter3">*</span>
                         <ul class="number_menu">
+                            <li>*</li>
                             <li>а</li>
                             <li>в</li>
                             <li>е</li>
@@ -110,13 +116,14 @@
                     </h1>
                 </div>
                 <div class="big-number__countr wrap-item-group">
-                    <h1 class="top-num wrap-item-group"><span class="num__content ac__class">*</span>
+                    <h1 class="top-num wrap-item-group"><span class="num__content ac__class" data-bs-value="regionNumber">*</span>
                         <ul class="number_menu">
-                            {{#each numbers}}
+                            <li>*</li>
+                            {{#each regionNumbers}}
                                 <li>{{number}}</li>
                             {{/each}}
                         </ul>
-                    </h1>
+                    </h1>  
                     <div class="countr">
                         <h1>rus</h1><img src="img/icons/ru-flag.svg" alt="">
                     </div>
@@ -132,7 +139,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="wrap-item-group">
-                                    <h3 class="head__title num__content">Регион</h3>
+                                    <h3 class="head__title num__content" data-bs-value="region">Регион</h3>
                                     <ul class="number_menu" id="region-menu">
                                         <li data-region-id="all">All</li>
                                         {{#if region}}
@@ -152,270 +159,41 @@
                     </div>
                 </div>
                 <div class="sale-table__body">
+                    {{#each number}}
                     <div class="table__body-item">
                         <div class="sale-table__container">
                             <div class="row">
                                 <div class="col-5">
                                     <div class="item-car__number">
                                         <div class="number__left">
-                                            <h2>Х</h2>
+                                            <h2>{{letter1}}</h2>
                                             <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
+                                                <h1>{{number1}}</h1>
+                                                <h1>{{number2}}</h1>
+                                                <h1>{{number3}}</h1>
                                             </div>
-                                            <h2>xx</h2>
+                                            <h2>{{letter2}}{{letter3}}</h2>
                                         </div>
                                         <div class="number__right">
-                                            <h2>02</h2>
+                                            <h2>{{regionNumber}}</h2>
                                             <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
+                                                <h4>rus</h4><img src="/img/icons/ru-flag.svg" alt="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
+                                    <h3 class="sale-table__region">{{region.name}}</h3>
                                 </div>
                                 <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
+                                    <h3 class="sale-table__price">{{amount}} ₽</h3>
                                 </div>
                                 <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
                                         type="button">Купить</button></div>
                             </div>
                         </div>
                     </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table__body-item">
-                        <div class="sale-table__container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="item-car__number">
-                                        <div class="number__left">
-                                            <h2>Х</h2>
-                                            <div class="item-min__number">
-                                                <h1>1</h1>
-                                                <h1>2</h1>
-                                                <h1>3</h1>
-                                            </div>
-                                            <h2>xx</h2>
-                                        </div>
-                                        <div class="number__right">
-                                            <h2>02</h2>
-                                            <div class="right-country">
-                                                <h4>rus</h4><img src="img/icons/ru-flag.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h3 class="sale-table__region">Москва</h3>
-                                </div>
-                                <div class="col-2">
-                                    <h3 class="sale-table__price">150.000 ₽</h3>
-                                </div>
-                                <div class="col-2"><button class="sale-teble__btn puy-modal__btn"
-                                        type="button">Купить</button></div>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div><button class="sale-table__bottom-btn" type="button">Показать
                 еще</button><!-- numbers table end -->
@@ -427,67 +205,19 @@
         <h1 class="decoration__title">Оформление номера <mark>за 3 часа</mark></h1>
         <div class="decoration-wrap">
             <div class="decoration-cards">
-                <div class="row g-xl-4 g-sm-3 g-2">
+                <div class="row g-xl-4 g-sm-3 g-2" id="decoration-cards">
+                    {{#each number}}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
+                            <div class="card-img"><img src="{{image}}" alt=""></div>
                             <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
+                                <h5><span style="text-transform: uppercase;">{{letter1}}{{number1}}{{number2}}{{number3}}{{letter2}}{{letter3}} {{regionNumber}}</span> | <span>{{region.name}}</span></h5>
+                                <h5><span>Одинаковые цифры</span> | <span>Цена до: {{formatDate createdAt}}</span></h5><button
+                                    class="puy-modal__btn card__btn">{{amount}} ₽ / Купить</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
-                            <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
-                            <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
-                            <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
-                            <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="decoration-card">
-                            <div class="card-img"><img src="img/card-car-1.png" alt=""></div>
-                            <div class="card-about">
-                                <h5><span>Т555РР 777</span> | <span>Москва</span></h5>
-                                <h5><span>Одинаковые цифры</span> | <span>Цена до: 30.01</span></h5><button
-                                    class="puy-modal__btn card__btn">350.000 ₽ / Купить</button>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div><button type="button" class="decoration-wrap__btn">Больше номеров</button>
         </div>

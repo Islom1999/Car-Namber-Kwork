@@ -13,11 +13,13 @@ const {
 
 } = require('../controls/adminControls')
 
+const upload = require('../utils/fileUpload')
+
 const router = Router()
 
 router.get('/numbers', getNumbers)
-router.post('/numbers', createNumbers)
-router.post('/numbers/update/:id', updateNumbers)
+router.post('/numbers', upload.single('image'), createNumbers)
+router.post('/numbers/update/:id', upload.single('image'), updateNumbers)
 router.post('/numbers/delete/:id', deleteNumbers)
 
 router.get('/region', getRegion)

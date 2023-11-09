@@ -5,7 +5,7 @@ const hbsHelpers = (handlebars) => {
   // date formatter
   handlebars.registerHelper("formatDate", function (dateString) {
     return new handlebars.SafeString(
-      moment(dateString).format("YYYY-MM-DD").toUpperCase()
+      moment(dateString).format("DD.MM.YYYY").toUpperCase()
     );
   });
 

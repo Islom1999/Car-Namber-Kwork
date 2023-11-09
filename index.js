@@ -29,7 +29,7 @@ server.set('view engine', '.hbs')
 const store = new MongoStore({
     collection: 'sessions',
     uri: process.env.MONGO_URI
-}) 
+})  
 server.use(session({
     secret: process.env.SECTION_SECRET,
     resave: false, 

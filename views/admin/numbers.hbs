@@ -18,9 +18,13 @@
 												aria-label="Close"></button>
 										</div>
 										<form class="col-12 m-auto update-form" action="/admin/numbers" method="post"
-											data-region-id="{{_id}}">
+											data-region-id="{{_id}}" enctype="multipart/form-data">
 											<div class="modal-body row">
 												<div class="mb-3">
+													<div class="mb-3">
+														<label class="form-label">Название региона</label>
+														<input type="file" name="image" class="form-control">
+													</div>
 													<div class="mb-3">
 														<label class="form-label">Название региона</label>
 														<select class="form-select region-select" data-numbers-target="regionNumbersSelect"
@@ -274,6 +278,7 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
+									<th scope="col">Image</th>
 									<th scope="col">Номер</th>
 									<th scope="col">Регион</th>
 									<th scope="col">Суммы</th>
@@ -287,6 +292,9 @@
 								{{#each number}}
 								<tr id="{{_id}}">
 									<th scope="row">{{@index}}</th>
+									<th scope="row" class="col-2">
+										<img src="{{image}}" class="img-fluid" alt="">
+									</th>
 									<td>
 										<div class="col-5">
 											<div class="item-car__number">
@@ -331,9 +339,16 @@
 															<img src="/img/icons/close.svg" alt=""></button>
 													</div>
 													<form class="col-12 m-auto update-form" action="/admin/numbers/update/{{_id}}" method="post"
-														data-region-id="{{_id}}">
+														data-region-id="{{_id}}" enctype="multipart/form-data">
 														<div class="modal-body row">
 															<div class="mb-3">
+																<div class="mb-3 text-center">
+																	<img src="{{image}}" class="col-2" alt="">
+																</div>
+																<div class="mb-3">
+																	<label class="form-label">Название региона</label>
+																	<input type="file" name="image" class="form-control">
+																</div>
 																<div class="mb-3">
 																	<label class="form-label">Название региона</label>
 																	<select class="form-select region-select" data-numbers-target="regionNumber-{{_id}}"

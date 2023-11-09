@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const Numbers = new mongoose.Schema(
     {
+        image: {
+            type: "string", 
+            required: true, 
+        },
         letter1: {
             type: "string", 
             required: true, 

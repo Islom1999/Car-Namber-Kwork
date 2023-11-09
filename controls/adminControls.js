@@ -3,7 +3,7 @@ const Number = require('../models/number')
 
 const getNumbers = async (req, res) => {
 	try {
-		const total = await Number.countDocuments();
+		const total = await Number.countDocuments({ ...req.query });
 		const limit = req.query.limit || 20;
 		const page = req.query.page || 1;
 
@@ -107,7 +107,14 @@ const deleteRegion = async (req, res) => {
 // numbers
 const createNumbers = async (req, res) => {
 	try {
-		await Number.create(req.body)
+		const image = '/upload/number-image/' + req.file.filename
+		let {letter1,letter2,letter3} = req.body
+
+		letter1 = letter1.toUpperCase()
+		letter2 = letter2.toUpperCase()
+		letter3 = letter3.toUpperCase()
+
+		await Number.create({... req.body, image, letter1, letter2, letter3})
 
 		res.redirect('/admin/numbers')
 	} catch (error) {
@@ -117,7 +124,21 @@ const createNumbers = async (req, res) => {
 
 const updateNumbers = async (req, res) => {
 	try {
-		await Number.findByIdAndUpdate(req.params.id, req.body)
+
+		const number = await Number.findById(req.params.id)
+		let image = number.image
+
+		let {letter1,letter2,letter3} = req.body
+
+		letter1 = letter1.toUpperCase()
+		letter2 = letter2.toUpperCase()
+		letter3 = letter3.toUpperCase()
+
+		if(req.file?.filename){
+			image = '/upload/number-image/' + req.file.filename
+		}
+
+		await Number.findByIdAndUpdate(req.params.id, {...req.body, image, letter1,letter2,letter3})
 
 		res.redirect('/admin/numbers')
 	} catch (error) {
