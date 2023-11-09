@@ -112,17 +112,9 @@
                 <div class="big-number__countr wrap-item-group">
                     <h1 class="top-num wrap-item-group"><span class="num__content ac__class">*</span>
                         <ul class="number_menu">
-                            <li>01</li>
-                            <li>02</li>
-                            <li>03</li>
-                            <li>04</li>
-                            <li>05</li>
-                            <li>06</li>
-                            <li>07</li>
-                            <li>08</li>
-                            <li>09</li>
-                            <li>10</li>
-                            <li>11</li>
+                            {{#each numbers}}
+                                <li>{{number}}</li>
+                            {{/each}}
                         </ul>
                     </h1>
                     <div class="countr">
@@ -141,91 +133,15 @@
                             <div class="col-3">
                                 <div class="wrap-item-group">
                                     <h3 class="head__title num__content">Регион</h3>
-                                    <ul class="number_menu">
-                                        <li>Регион</li>
-                                        <li>Москва</li>
-                                        <li>Московская область</li>
-                                        <li>Санкт-Петербург</li>
-                                        <li>Ленинградская область</li>
-                                        <li>Алтайский край</li>
-                                        <li>Амурская область</li>
-                                        <li>Архангельская область</li>
-                                        <li>Байконур</li>
-                                        <li>Белгородская область</li>
-                                        <li>Брянская область</li>
-                                        <li>Владимирская область</li>
-                                        <li>Волгоградская область</li>
-                                        <li>Вологодская область</li>
-                                        <li>Воронежская область</li>
-                                        <li>Еврейская автономная область</li>
-                                        <li>Забайкальский край</li>
-                                        <li>Ивановская область</li>
-                                        <li>Иркутская область</li>
-                                        <li>Кабардино-Балкарская Республика</li>
-                                        <li>Калининградская область</li>
-                                        <li>Калужская область</li>
-                                        <li>Камчатский край</li>
-                                        <li>Кировская область</li>
-                                        <li>Костромская область</li>
-                                        <li>Краснодарский край</li>
-                                        <li>Курганская область</li>
-                                        <li>Курская область</li>
-                                        <li>Липецкая область</li>
-                                        <li>Магаданская область</li>
-                                        <li>Мурманская область</li>
-                                        <li>Ненецкий автономный округ</li>
-                                        <li>Нижегородская область</li>
-                                        <li>Новгородская область</li>
-                                        <li>Новосибирская область</li>
-                                        <li>Омская область</li>
-                                        <li>Оренбургская область</li>
-                                        <li>Орловская область</li>
-                                        <li>Пензенская область</li>
-                                        <li>Пермский край</li>
-                                        <li>Приморский край</li>
-                                        <li>Псковская область</li>
-                                        <li>Республика Адыгея</li>
-                                        <li>Республика Алтай (Горный Алтай)</li>
-                                        <li>Республика Башкортостан</li>
-                                        <li>Республика Бурятия</li>
-                                        <li>Республика Дагестан</li>
-                                        <li>Республика Ингушетия</li>
-                                        <li>Республика Калмыкия</li>
-                                        <li>Республика Карачаево-Черкессия</li>
-                                        <li>Республика Карелия</li>
-                                        <li>Республика Коми</li>
-                                        <li>Республика Крым</li>
-                                        <li>Республика Марий Эл</li>
-                                        <li>Республика Мордовия</li>
-                                        <li>Республика Саха (Якутия)</li>
-                                        <li>Республика Северная Осетия — Алания</li>
-                                        <li>Республика Татарстан</li>
-                                        <li>Республика Тыва</li>
-                                        <li>Республика Хакасия</li>
-                                        <li>Ростовская область</li>
-                                        <li>Рязанская область</li>
-                                        <li>Самарская область</li>
-                                        <li>Саратовская область</li>
-                                        <li>Сахалинская область</li>
-                                        <li>Свердловская область</li>
-                                        <li>Севастополь</li>
-                                        <li>Смоленская область</li>
-                                        <li>Ставропольский край</li>
-                                        <li>Тамбовская область</li>
-                                        <li>Тверская область</li>
-                                        <li>Томская область</li>
-                                        <li>Тульская область</li>
-                                        <li>Тюменская область</li>
-                                        <li>Удмуртская Республика</li>
-                                        <li>Ульяновская область</li>
-                                        <li>Хабаровский край</li>
-                                        <li>Ханты-Мансийский автономный округ — Югра</li>
-                                        <li>Челябинская область</li>
-                                        <li>Чеченская республика</li>
-                                        <li>Чувашская Республика</li>
-                                        <li>Чукотский автономный округ</li>
-                                        <li>Ямало-Ненецкий автономный округ</li>
-                                        <li>Ярославская область</li>
+                                    <ul class="number_menu" id="region-menu">
+                                        <li data-region-id="all">All</li>
+                                        {{#if region}}
+                                            {{#each region}}
+                                                <li data-region-id="{{_id}}">{{name}}</li>
+                                            {{/each}}
+                                        {{else}}
+                                            <li>no region</li>
+                                        {{/if}}
                                     </ul>
                                 </div>
                             </div>
@@ -643,3 +559,28 @@
         </div>
     </div>
 </section><!-- contact end --><!-- footer start -->
+
+<script>
+document.querySelectorAll('#region-menu li').forEach(function(item) {
+    item.addEventListener('click', function() {
+        var regionId = this.getAttribute('data-region-id');
+        if (regionId) {
+            fetch('/api/region/' + regionId + '/numbers')
+                .then(response => response.json())
+                .then(data => {
+                    var numbersList = document.querySelector('.big-number__countr .number_menu');
+                    numbersList.innerHTML = ''; // Avvalgi ma'lumotlarni tozalaymiz
+
+                    data.forEach(function(number) {
+                        var li = document.createElement('li');
+                        li.textContent = number.number; // Bu yerda "number" regionga tegishli raqamlardan biridir
+                        numbersList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    });
+});
+</script>

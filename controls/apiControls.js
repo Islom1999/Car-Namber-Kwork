@@ -28,7 +28,40 @@ const getRegionById = async(req, res) => {
     }
 }
 
+const getRegionByIdNumbers = async(req, res) => {
+    try {
+        let numbers = []
+        if(req.params.id == 'all'){
+            numbers = []
+            const region = await Region.find().lean()
+            if(!region){
+                return res.status(404).json({ message: "Region not found"})
+            }
+            
+            region.forEach(regionItem => {
+                regionItem.numbers.forEach(number => {
+                    numbers.push(number)
+                })
+            })
+            
+        }else{
+            const region = await Region.findById(req.params.id).lean()
+            if(!region){
+                return res.status(404).json({ message: "Region not found"})
+            }
+            numbers = region.numbers
+        }
+
+        
+        return res.json(numbers)
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getRegion,
-    getRegionById
+    getRegionById,
+    getRegionByIdNumbers
 }
