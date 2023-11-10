@@ -63,7 +63,7 @@ const getRegionByIdNumbers = async(req, res) => {
 const getNumbers = async (req, res) => {
 	try {
 		// const total = await Number.countDocuments();
-		const limit = req.query.limit || 3;
+		const limit = req.query.limit || 6;
 		const page = req.query.page || 1;
 
         const {letter1, letter2, letter3, number1, number2, number3, region, regionNumber} = req.query
@@ -79,7 +79,7 @@ const getNumbers = async (req, res) => {
         if (number3 && number3 !== '*') queryFilter.number3 = number3;
         if (regionNumber && regionNumber !== '*') queryFilter.regionNumber = regionNumber;
 
-		const number = await Number.find({ ...queryFilter })
+		const number = await Number.find({...queryFilter})
 			.sort({ createdAt: -1 })
 			.skip(page * limit - limit)
 			.limit(limit)

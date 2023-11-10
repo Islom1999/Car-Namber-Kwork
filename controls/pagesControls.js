@@ -8,7 +8,7 @@ const Link = require('../models/links')
 const getHome = async(req, res) => {
     try {
         const total = await Number.countDocuments({ ...req.query });
-		const limit = req.query.limit || 3;
+		const limit = req.query.limit || 6;
 		const page = req.query.page || 1;
 
 		const number = await Number.find({ ...req.query })
@@ -22,6 +22,14 @@ const getHome = async(req, res) => {
         const header = await Header.findOne().lean()
         const content = await Content.find().lean()
         const link = await Link.findOne().lean()
+
+        if(content[0]){
+            content.forEach((contentItem, index) =>{
+                if(index % 2  == 0){
+                    contentItem.isLeft = true
+                }
+            })
+        }
 
         const regionNumbers = []    
         if(region[0]){

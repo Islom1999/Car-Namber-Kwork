@@ -18,18 +18,18 @@
 					<h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter1">*</span>
 						<ul class="number_menu">
 							<li>*</li>
-							<li>а</li>
-							<li>в</li>
-							<li>е</li>
-							<li>к</li>
-							<li>м</li>
-							<li>н</li>
-							<li>о</li>
-							<li>р</li>
-							<li>с</li>
-							<li>т</li>
-							<li>у</li>
-							<li>х</li>
+							<li>А</li>
+							<li>В</li>
+							<li>Э</li>
+							<li>К</li>
+							<li>М</li>
+							<li>Н</li>
+							<li>О</li>
+							<li>Р</li>
+							<li>С</li>
+							<li>Т</li>
+							<li>У</li>
+							<li>X</li>
 						</ul>
 					</h1>
 					<div class="min-number">
@@ -82,35 +82,35 @@
 					<h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter2">*</span>
 						<ul class="number_menu">
 							<li>*</li>
-							<li>а</li>
-							<li>в</li>
-							<li>е</li>
-							<li>к</li>
-							<li>м</li>
-							<li>н</li>
-							<li>о</li>
-							<li>р</li>
-							<li>с</li>
-							<li>т</li>
-							<li>у</li>
-							<li>х</li>
+							<li>А</li>
+							<li>В</li>
+							<li>Э</li>
+							<li>К</li>
+							<li>М</li>
+							<li>Н</li>
+							<li>О</li>
+							<li>Р</li>
+							<li>С</li>
+							<li>Т</li>
+							<li>У</li>
+							<li>X</li>
 						</ul>
 					</h1>
 					<h1 class="harf wrap-item-group"><span class="num__content ac__class" data-bs-value="letter3">*</span>
 						<ul class="number_menu">
 							<li>*</li>
-							<li>а</li>
-							<li>в</li>
-							<li>е</li>
-							<li>к</li>
-							<li>м</li>
-							<li>н</li>
-							<li>о</li>
-							<li>р</li>
-							<li>с</li>
-							<li>т</li>
-							<li>у</li>
-							<li>х</li>
+							<li>А</li>
+							<li>В</li>
+							<li>Э</li>
+							<li>К</li>
+							<li>М</li>
+							<li>Н</li>
+							<li>О</li>
+							<li>Р</li>
+							<li>С</li>
+							<li>Т</li>
+							<li>У</li>
+							<li>X</li>
 						</ul>
 					</h1>
 				</div>
@@ -230,17 +230,31 @@
 			<div class="buy-wrap__cards">
 				<div class="row g-4 row__orders">
 					{{#each content}}
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card only-img">
-							<div class="card-img"><img src="{{image}}" alt=""></div>
+					{{#if isLeft}}
+						<div class="col-xl-6 col-lg-6 col-md-12">
+							<div class="wrap__cards-card only-img">
+								<div class="card-img"><img src="{{image}}" alt=""></div>
+							</div>
 						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="wrap__cards-card">
-							<h2 class="card-title">{{title}}</h2>
-							<p>{{description}}</p>
+						<div class="col-xl-6 col-lg-6 col-md-12">
+							<div class="wrap__cards-card">
+								<h2 class="card-title">{{title}}</h2>
+								<p>{{description}}</p>
+							</div>
 						</div>
-					</div>
+						{{else}}
+						<div class="col-xl-6 col-lg-6 col-md-12">
+							<div class="wrap__cards-card">
+								<h2 class="card-title">{{title}}</h2>
+								<p>{{description}}</p>
+							</div>
+						</div>
+						<div class="col-xl-6 col-lg-6 col-md-12">
+							<div class="wrap__cards-card only-img">
+								<div class="card-img"><img src="{{image}}" alt=""></div>
+							</div>
+						</div>
+					{{/if}}
 					{{/each}}
 				</div>
 			</div>

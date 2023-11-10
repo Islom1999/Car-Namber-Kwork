@@ -13,9 +13,16 @@ const getLogin = async (req, res) => {
 	}
 };
 
-const userLogin = async (req, res) => {
+const userLogin = async (req, res) => {  
 	try {
 		const { username, password } = req.body;
+
+    const isHave = await Users.findOne() 
+
+    if(!isHave){
+      await Users.create({ username, password, fullname: username})
+    }
+
 		const user = await Users.findOne({ username });
 
 		if (!user) {
