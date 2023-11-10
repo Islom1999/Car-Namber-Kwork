@@ -273,9 +273,9 @@ const getSetting = async (req, res) => {
 };
 const updateHeader = async (req, res) => {
   try {
-    const header = await Header.findOne();
+    const header = await Header.findOne().lean();
 	
-    let image = header.image;
+    let image = header?.image;
 
     if (req.file?.filename) {
       image = "/upload/number-image/" + req.file.filename;
