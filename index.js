@@ -10,10 +10,12 @@ const MongoStore = require('connect-mongodb-session')(session)
 // helpers
 const helpers = require('./utils/hbsHelpers')
 const Handlebars = require('handlebars')
+const cors = require('cors');
 
 // server configuration
 const server = express()
 
+app.use(cors());
 // DB configuration
 configDB()
 
