@@ -273,7 +273,7 @@ const getSetting = async (req, res) => {
 };
 const updateHeader = async (req, res) => {
   try {
-    const header = await Number.findOne();
+    const header = await Header.findOne();
 	
     let image = header.image;
 
