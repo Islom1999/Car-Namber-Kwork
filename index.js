@@ -28,7 +28,7 @@ server.engine('.hbs', engine({extname: '.hbs'}))
 server.set('view engine', '.hbs')
 
 // session configuration
-const store = new MongoStore({
+const store = new MongoStore({ 
     collection: 'sessions',
     uri: process.env.MONGO_URI
 })  

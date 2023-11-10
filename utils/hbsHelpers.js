@@ -15,7 +15,7 @@ const hbsHelpers = (handlebars) => {
     this._switch_break_ = false;
     return options.fn(this);
   });
-
+ 
   hbs.registerHelper("case", function (value, options) {
     if (value == this._switch_value_) {
       this._switch_break_ = true;

@@ -5,102 +5,105 @@
 		<div class="col-12">
 			<div class="card-body">
 				<h5 class="card-title text-center">Список регионов</h5>
-				<form action="">
-					<div class="row justify-content-center">
-						<div class="col-md-8 col-sm-12">
-							<div class="row">
-								<div class="mb-3 text-center">
-									<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-										data-bs-target="#modal-create-{{_id}}">
-										Добавить регион
-									</button>
-									<!-- Modal -->
-									<div class="modal fade text-start" id="modal-create-{{_id}}" tabindex="-1"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-														Регион</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-														<img src="/img/icons/close-dark.svg" alt="">
-													</button>
+				<div class="row justify-content-center">
+					<div class="col-md-8 col-sm-12">
+						<div class="row">
+							<div class="mb-3 text-center">
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+									data-bs-target="#modal-create-{{_id}}">
+									Добавить регион
+								</button>
+								<!-- Modal -->
+								<div class="modal fade text-start" id="modal-create-{{_id}}" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+													Регион</h1>
+												<button type="button" class="btn-close" data-bs-dismiss="modal"
+													aria-label="Close">
+													<img src="/img/icons/close-dark.svg" alt="">
+												</button>
+											</div>
+											<form class="col-12 m-auto" action="/admin/region/" method="post"
+												id="create-region">
+												<div class="modal-body row">
+													<div class="mb-3">
+														<label class="form-label">Название региона</label>
+														<input required type="text" class="form-control"
+															placeholder="Название региона" name="name" value="">
+													</div>
+													<div class="mb-3" id="numberInputs">
+														<label class="form-label">Номера регионов</label>
+													</div>
+													<div class="text-center">
+														<button type="button" id="addNumber"
+															class="btn btn-info">Добавить номер</button>
+													</div>
+
+													<div class="mb-3">
+														<label class="form-label">Описание региона</label>
+														<textarea type="text" class="form-control"
+															placeholder="Название региона" name="description"
+															value=""></textarea>
+													</div>
 												</div>
-												<form class="col-12 m-auto" action="/admin/region/" method="post" id="create-region">
-													<div class="modal-body row">
-														<div class="mb-3">
-															<label class="form-label">Название региона</label>
-															<input required type="text" class="form-control" placeholder="Название региона"
-																name="name" value="">
-														</div>
-														<div class="mb-3" id="numberInputs">
-															<label class="form-label">Номера регионов</label>
-														</div>
-														<div class="text-center">
-															<button type="button" id="addNumber" class="btn btn-info">Добавить номер</button>
-														</div>
-
-														<div class="mb-3">
-															<label class="form-label">Описание региона</label>
-															<textarea required type="text" class="form-control" placeholder="Название региона"
-																name="description" value=""></textarea>
-														</div>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
-														<button type="submit" class="btn btn-primary">Добавлять</button>
-													</div>
-												</form>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">Назад</button>
+													<button type="submit" class="btn btn-primary">Добавлять</button>
+												</div>
+											</form>
 
 
 
-												<script>
-													document.addEventListener('DOMContentLoaded', function () {
-														const numberInputsContainer = document.getElementById('numberInputs');
-														const addNumberButton = document.getElementById('addNumber');
+											<script>
+												document.addEventListener('DOMContentLoaded', function () {
+													const numberInputsContainer = document.getElementById('numberInputs');
+													const addNumberButton = document.getElementById('addNumber');
 
-														addNumberButton.onclick = function () {
-															const inputWrapper = document.createElement('div');
-															inputWrapper.className = 'input-group mb-2';
+													addNumberButton.onclick = function () {
+														const inputWrapper = document.createElement('div');
+														inputWrapper.className = 'input-group mb-2';
 
-															const numberInput = document.createElement('input');
-															numberInput.type = 'number';
-															numberInput.className = 'form-control';
-															numberInput.placeholder = 'Номер региона';
-															numberInput.name = 'number';
+														const numberInput = document.createElement('input');
+														numberInput.type = 'number';
+														numberInput.className = 'form-control';
+														numberInput.placeholder = 'Номер региона';
+														numberInput.name = 'number';
 
-															const deleteButton = document.createElement('button');
-															deleteButton.type = 'button';
-															deleteButton.className = 'btn btn-danger';
-															deleteButton.textContent = 'X';
-															deleteButton.onclick = function () {
-																numberInputsContainer.removeChild(inputWrapper);
-															};
-
-															inputWrapper.appendChild(numberInput);
-															inputWrapper.appendChild(deleteButton);
-															numberInputsContainer.appendChild(inputWrapper);
+														const deleteButton = document.createElement('button');
+														deleteButton.type = 'button';
+														deleteButton.className = 'btn btn-danger';
+														deleteButton.textContent = 'X';
+														deleteButton.onclick = function () {
+															numberInputsContainer.removeChild(inputWrapper);
 														};
 
-														document.querySelector('form').addEventListener('submit', function (e) {
-															e.preventDefault(); // formaning default submit hodisasini to'xtatish
+														inputWrapper.appendChild(numberInput);
+														inputWrapper.appendChild(deleteButton);
+														numberInputsContainer.appendChild(inputWrapper);
+													};
 
-															// Endi formani dasturiy ravishda yuborish
-															e.target.action = '/admin/region'
-															e.target.method = 'POST'
-															e.target.submit();
-														});
+													document.querySelector('form').addEventListener('submit', function (e) {
+														e.preventDefault(); // formaning default submit hodisasini to'xtatish
 
+														// Endi formani dasturiy ravishda yuborish
+														e.target.action = '/admin/region'
+														e.target.method = 'POST'
+														e.target.submit();
 													});
-												</script>
-											</div>
+
+												});
+											</script>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
+				</div>
 
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover align-middle">
@@ -141,41 +144,49 @@
 												<div class="modal-header">
 													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
 														Регион</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close">
 														<img src="/img/icons/close-dark.svg" alt="">
 													</button>
 												</div>
-												<form class="col-12 m-auto update-form" action="/admin/region/update/{{_id}}" method="post"
+												<form class="col-12 m-auto update-form"
+													action="/admin/region/update/{{_id}}" method="post"
 													data-region-id="{{_id}}">
 													<div class="modal-body row">
 														<div class="mb-3">
 															<label class="form-label">Название региона</label>
-															<input required type="text" class="form-control" placeholder="Название региона"
-																name="name" value="{{name}}">
+															<input required type="text" class="form-control"
+																placeholder="Название региона" name="name"
+																value="{{name}}">
 														</div>
 														<div class="mb-3" id="numberInputs-{{_id}}">
 															<label class="form-label">Номер регионаs</label>
 															{{#each numbers}}
 															<div class="input-group mb-2">
-																<input type="number" placeholder="Номер региона" class="form-control" name="number"
+																<input type="number" placeholder="Номер региона"
+																	class="form-control" name="number"
 																	value="{{number}}">
-																<button class="btn btn-danger" type="button" onclick="removeNumber(this)">X</button>
+																<button class="btn btn-danger" type="button"
+																	onclick="removeNumber(this)">X</button>
 															</div>
 															{{/each}}
 														</div>
 														<div class="text-center">
-															<button type="button" class="btn btn-info addNumber" data-id="{{_id}}">Добавить
+															<button type="button" class="btn btn-info addNumber"
+																data-id="{{_id}}">Добавить
 																номер</button>
 														</div>
 
 														<div class="mb-3">
 															<label class="form-label">Описание региона</label>
-															<textarea required type="text" class="form-control" placeholder="Название региона"
-																name="description" value="">{{description}}</textarea>
+															<textarea type="text" class="form-control"
+																placeholder="Название региона" name="description"
+																value="">{{description}}</textarea>
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+														<button type="button" class="btn btn-secondary"
+															data-bs-dismiss="modal">Назад</button>
 														<button type="submit" class="btn btn-primary">Добавлять</button>
 													</div>
 												</form>
@@ -266,17 +277,19 @@
 												<div class="modal-header">
 													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
 														Удалить регион</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close">
 														<img src="/img/icons/close-dark.svg" alt="">
 													</button>
 												</div>
-												<form class="col-12 m-auto" class="forms-sample" action="/admin/region/delete/{{_id}}"
-													method="post">
+												<form class="col-12 m-auto" class="forms-sample"
+													action="/admin/region/delete/{{_id}}" method="post">
 													<div class="modal-body">
 														<h5 class="text-primary">Вы правы, удалить регион?</h5>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+														<button type="button" class="btn btn-secondary"
+															data-bs-dismiss="modal">Назад</button>
 														<button type="submit" class="btn btn-danger">Удалить</button>
 													</div>
 												</form>
@@ -296,11 +309,6 @@
 						</tbody>
 					</table>
 				</div>
-
-
-
-
-
 			</div>
 		</div>
 	</div>
