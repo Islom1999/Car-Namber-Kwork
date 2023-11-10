@@ -1,163 +1,147 @@
 <section class="section dashboard">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center">
-                        <h3 class="card-title">Admin qo'shish</h3>
-                        <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal"
-                            data-bs-target="#addworker">
-                            Qo'shish
-                        </button>
-                    </div>
-                    <div class="modal fade" id="addworker" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Admin qo'shish</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <form action="/admin/create" method="POST">
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="">Ism Familiya</label>
-                                            <input class="form-control" type="text" name="fullname" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="">Username</label>
-                                            <input class="form-control" type="text" name="username" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="">Tel raqami</label>
-                                            <input class="form-control" type="text" name="phone" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="">Parol</label>
-                                            <input class="form-control" type="text" name="password" required>
-                                        </div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="text-center">
+						<h3 class="card-title">Добавить администратора</h3>
+						<button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#addworker">
+							Добавлять
+						</button>
+					</div>
+					<div class="modal fade" id="addworker" tabindex="-1">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Добавить администратора</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<form action="/admin/create" method="POST">
+									<div class="modal-body">
+										<div class="mb-3">
+											<label class="form-label" for="">Имя Фамилия</label>
+											<input class="form-control" type="text" name="fullname" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="">Имя пользователя</label>
+											<input class="form-control" type="text" name="username" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="">Номер телефона</label>
+											<input class="form-control" type="text" name="phone" required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="">Пароль</label>
+											<input class="form-control" type="text" name="password" required>
+										</div>
 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Qaytish</button>
-                                        <button type="submit" class="btn btn-primary">Qo'shish</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div><!-- End Basic Modal-->
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Ism Familiyasi</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Tell raqami</th>
-                                    <th scope="col">Paroli</th>
-                                    <th scope="col">O'zgartirish</th>
-                                    <th scope="col">O'chirish</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each admins}}
-                                <tr>
-                                    <th scope="row">{{@index}}</th>
-                                    <td>{{fullname}}</td>
-                                    <td>{{username}}</td>
-                                    <td>{{phone}}</td>
-                                    <td>{{password}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#update-{{@index}}">
-                                            <i class="ri-edit-box-fill"></i>
-                                        </button>
-                                        <div class="modal fade" id="update-{{@index}}" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Bolani malumotlarini o'zgartirish
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <form action="/admin/update/{{_id}}" method="POST">
-                                                        <div class="modal-body">
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="">Ism
-                                                                    Familiya</label>
-                                                                <input class="form-control" type="text" name="fullname"
-                                                                    required value="{{fullname}}">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="">Username</label>
-                                                                <input class="form-control" type="text" name="username"
-                                                                    required value="{{username}}">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="">Tel raqami</label>
-                                                                <input class="form-control" type="text" name="phone"
-                                                                    required value="{{phone}}">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="">Parol</label>
-                                                                <input class="form-control" type="text" name="password"
-                                                                    required value="{{password}}">
-                                                            </div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+										<button type="submit" class="btn btn-primary">Добавлять</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div><!-- End Basic Modal-->
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Имя Фамилия</th>
+									<th scope="col">Имя пользователя</th>
+									<th scope="col">номер телефона</th>
+									<th scope="col">пароль</th>
+									<th scope="col">Изменять</th>
+									<th scope="col">Удалить</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each admins}}
+								<tr>
+									<th scope="row">{{@index}}</th>
+									<td>{{fullname}}</td>
+									<td>{{username}}</td>
+									<td>{{phone}}</td>
+									<td>{{password}}</td>
+									<td>
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+											data-bs-target="#update-{{@index}}">
+											Изменять
+										</button>
+										<div class="modal fade" id="update-{{@index}}" tabindex="-1">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">Изменить информацию администратора
+														</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<form action="/admin/update/{{_id}}" method="POST">
+														<div class="modal-body">
+															<div class="mb-3">
+																<label class="form-label" for="">Имя
+																	Фамилия</label>
+																<input class="form-control" type="text" name="fullname" required value="{{fullname}}">
+															</div>
+															<div class="mb-3">
+																<label class="form-label" for="">Имя пользователя</label>
+																<input class="form-control" type="text" name="username" required value="{{username}}">
+															</div>
+															<div class="mb-3">
+																<label class="form-label" for="">Номер телефона</label>
+																<input class="form-control" type="text" name="phone" required value="{{phone}}">
+															</div>
+															<div class="mb-3">
+																<label class="form-label" for="">Пароль</label>
+																<input class="form-control" type="text" name="password" required value="{{password}}">
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+															<button type="submit" class="btn btn-primary">Добавлять</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div><!-- End Basic Modal-->
+									</td>
+									<td>
+										<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+											data-bs-target="#delete-{{@index}}">
+											Удалить
+										</button>
+										<div class="modal fade" id="delete-{{@index}}" tabindex="-1">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">Удалить данные администратора</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<form action="/admin/delete/{{_id}}" method="POST">
+														<div class="modal-body">
+															<h4>Вы уверены, что хотите удалить это?</h4>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+															<button type="submit" class="btn btn-danger">Удалить</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div><!-- End Basic Modal-->
+									</td>
+									<!-- Basic Modal -->
+								</tr>
+								{{/each}}
+							</tbody>
+						</table>
+					</div>
+					<!-- End Bordered Table -->
+				</div>
+			</div>
+		</div>
 
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Qaytish</button>
-                                                            <button type="submit"
-                                                                class="btn btn-primary">Qo'shish</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div><!-- End Basic Modal-->
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#delete-{{@index}}">
-                                            <i class="ri-delete-bin-fill"></i>
-                                        </button>
-                                        <div class="modal fade" id="delete-{{@index}}" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Admin malumotlarini o'chirish</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <form action="/admin/delete/{{_id}}" method="POST">
-                                                        <div class="modal-body">
-                                                            <h4>Haqiqatdan ham O'chirmoqchimisiz</h4>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Qaytish</button>
-                                                            <button type="submit"
-                                                                class="btn btn-danger">O'chirish</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div><!-- End Basic Modal-->
-                                    </td>
-                                    <!-- Basic Modal -->
-
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End Bordered Table -->
-                </div>
-            </div>
-        </div>
-
-    </div>
+	</div>
 </section>

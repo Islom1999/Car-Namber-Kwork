@@ -1,253 +1,239 @@
 <div class="col-md-12">
-    <div class="card">
-        <div class="col-12">
-            <div class="card-body">
-                <h5 class="card-title text-center">Header update</h5>
+	<div class="card">
+		<div class="col-12">
+			<div class="card-body">
+				<h5 class="card-title text-center">Обновление заголовка</h5>
 
-                <section id="home" style="background: url('{{header.image}}') right/cover no-repeat !important;">
-                    <div class="container">
-                        <div class="home-wrap">
-                            <h1 class="home-title">{{header.title}}</h1><button type="button"
-                                class="btn-def bg-21422F puy-modal__btn home-btn">{{header.button}}</button>
-                        </div>
-                        <div class="home__bottom">
-                            <p>{{header.description}}</p>
-                        </div>
-                    </div>
-                </section><!-- home end --><!-- plate nomer start -->
-                <div class="my-3 text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modal-update-header">
-                        Update header
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade text-start" id="modal-update-header" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                        Регион</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                        <img src="/img/icons/close-dark.svg" alt="">
-                                    </button>
-                                </div>
-                                <form class="col-12 m-auto" action="/admin/setting/update/header" method="post"
-                                    enctype="multipart/form-data">
-                                    <div class="modal-body row">
-                                        <div class="mb-3">
-                                            <label class="form-label">Image</label>
-                                            <input type="file" class="form-control" placeholder="Название региона"
-                                                name="image">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Title</label>
-                                            <textarea required type="text" class="form-control"
-                                                placeholder="Название региона" name="title"
-                                                value="">{{header.title}}</textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Button</label>
-                                            <input required type="text" class="form-control"
-                                                placeholder="Название региона" name="button" value="{{header.button}}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Description</label>
-                                            <textarea required type="text" class="form-control"
-                                                placeholder="Название региона" name="description"
-                                                value="">{{header.description}}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Назад</button>
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				<section id="home" style="background: url('{{header.image}}') right/cover no-repeat !important;">
+					<div class="container">
+						<div class="home-wrap">
+							<h1 class="home-title">{{header.title}}</h1><button type="button"
+								class="btn-def bg-21422F puy-modal__btn home-btn">{{header.button}}</button>
+						</div>
+						<div class="home__bottom">
+							<p>{{header.description}}</p>
+						</div>
+					</div>
+				</section><!-- home end --><!-- plate nomer start -->
+				<div class="my-3 text-center">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-update-header">
+						Обновить заголовок
+					</button>
+					<!-- Modal -->
+					<div class="modal fade text-start" id="modal-update-header" tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+										Регион</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+										<img src="/img/icons/close-dark.svg" alt="">
+									</button>
+								</div>
+								<form class="col-12 m-auto" action="/admin/setting/update/header" method="post"
+									enctype="multipart/form-data">
+									<div class="modal-body row">
+										<div class="mb-3">
+											<label class="form-label">Изображение</label>
+											<input type="file" class="form-control" placeholder="Название региона" name="image">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Заголовок</label>
+											<textarea required type="text" class="form-control" placeholder="Название региона" name="title"
+												value="">{{header.title}}</textarea>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Кнопка</label>
+											<input required type="text" class="form-control" placeholder="Название региона" name="button"
+												value="{{header.button}}">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Описание</label>
+											<textarea required type="text" class="form-control" placeholder="Название региона"
+												name="description" value="">{{header.description}}</textarea>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+										<button type="submit" class="btn btn-primary">Обновлять</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <h5 class="card-title text-center mt-5">Content update</h5>
-                <div class="my-3 text-center">
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal"
-                        data-bs-target="#modal-update-{{_id}}">
-                        Create Content
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                        Content</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                        <img src="/img/icons/close-dark.svg" alt="">
-                                    </button>
-                                </div>
-                                <form class="col-12 m-auto" action="/admin/setting/create/content" method="post"
-                                    enctype="multipart/form-data">
-                                    <div class="modal-body row">
-                                        <div class="mb-3">
-                                            <label class="form-label">Image</label>
-                                            <input required type="file" class="form-control"
-                                                placeholder="Название региона" name="image">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Title</label>
-                                            <textarea required type="text" class="form-control"
-                                                placeholder="Название региона" name="title" value=""></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Description</label>
-                                            <textarea required type="text" class="form-control"
-                                                placeholder="Название региона" name="description" value=""></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Назад</button>
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="buy-wrap">
-                        <div class="buy-wrap__cards">
-                            <div class="row g-4">
-                                {{#each content}}
-                                <div class="col-xl-6 col-lg-6 col-md-12">
-                                    <div class="wrap__cards-card only-img">
-                                        <div class="card-img"><img src="{{image}}" alt=""></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-12">
-                                    <div class="wrap__cards-card">
-                                        <h2 class="card-title">{{title}}</h2>
-                                        <p>{{description}}</p>
-                                    </div>
-                                </div>
-                                {{!-- controls modal --}}
-                                <div class="my-3 text-center">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modal-update-{{_id}}">
-                                        Update Content
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                                        Content</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <img src="/img/icons/close-dark.svg" alt="">
-                                                    </button>
-                                                </div>
-                                                <form class="col-12 m-auto"
-                                                    action="/admin/setting/update/content/{{_id}}" method="post"
-                                                    enctype="multipart/form-data">
-                                                    <div class="modal-body row">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Image</label>
-                                                            <input type="file" class="form-control"
-                                                                placeholder="Название региона" name="image">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Title</label>
-                                                            <textarea required type="text" class="form-control"
-                                                                placeholder="Название региона" name="title"
-                                                                value="">{{title}}</textarea>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Description</label>
-                                                            <textarea required type="text" class="form-control"
-                                                                placeholder="Название региона" name="description"
-                                                                value="">{{description}}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Назад</button>
-                                                        <button type="submit" class="btn btn-primary">Update</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+				<h5 class="card-title text-center mt-5">Обновление контента</h5>
+				<div class="my-3 text-center">
+					<button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal"
+						data-bs-target="#modal-update-{{_id}}">
+						Create Content
+					</button>
+					<!-- Modal -->
+					<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+										Содержание</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+										<img src="/img/icons/close-dark.svg" alt="">
+									</button>
+								</div>
+								<form class="col-12 m-auto" action="/admin/setting/create/content" method="post"
+									enctype="multipart/form-data">
+									<div class="modal-body row">
+										<div class="mb-3">
+											<label class="form-label">Изображение</label>
+											<input required type="file" class="form-control" placeholder="Название региона" name="image">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Заголовок</label>
+											<textarea required type="text" class="form-control" placeholder="Название региона" name="title"
+												value=""></textarea>
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Описание</label>
+											<textarea required type="text" class="form-control" placeholder="Название региона"
+												name="description" value=""></textarea>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+										<button type="submit" class="btn btn-primary">Update</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="buy-wrap">
+						<div class="buy-wrap__cards">
+							<div class="row g-4">
+								{{#each content}}
+								<div class="col-xl-6 col-lg-6 col-md-12">
+									<div class="wrap__cards-card only-img">
+										<div class="card-img"><img src="{{image}}" alt=""></div>
+									</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-12">
+									<div class="wrap__cards-card">
+										<h2 class="card-title">{{title}}</h2>
+										<p>{{description}}</p>
+									</div>
+								</div>
+								{{!-- controls modal --}}
+								<div class="my-3 text-center">
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+										data-bs-target="#modal-update-{{_id}}">
+										Update Content
+									</button>
+									<!-- Modal -->
+									<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+														Содержание</h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+														<img src="/img/icons/close-dark.svg" alt="">
+													</button>
+												</div>
+												<form class="col-12 m-auto" action="/admin/setting/update/content/{{_id}}" method="post"
+													enctype="multipart/form-data">
+													<div class="modal-body row">
+														<div class="mb-3">
+															<label class="form-label">Изображение</label>
+															<input type="file" class="form-control" placeholder="Название региона" name="image">
+														</div>
+														<div class="mb-3">
+															<label class="form-label">Заголовок</label>
+															<textarea required type="text" class="form-control" placeholder="Название региона"
+																name="title" value="">{{title}}</textarea>
+														</div>
+														<div class="mb-3">
+															<label class="form-label">Описание</label>
+															<textarea required type="text" class="form-control" placeholder="Название региона"
+																name="description" value="">{{description}}</textarea>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+														<button type="submit" class="btn btn-primary">Update</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
 
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modal-delete-{{_id}}">
-                                        Удалит
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                                                        Удалить регион</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <img src="/img/icons/close-dark.svg" alt="">
-                                                    </button>
-                                                </div>
-                                                <form class="col-12 m-auto" class="forms-sample"
-                                                    action="/admin/setting/delete/content/{{_id}}" method="post">
-                                                    <div class="modal-body">
-                                                        <h5 class="text-primary">Вы правы, удалить регион?</h5>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Назад</button>
-                                                        <button type="submit" class="btn btn-danger">Удалить</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{/each}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+									<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+										data-bs-target="#modal-delete-{{_id}}">
+										Удалит
+									</button>
+									<!-- Modal -->
+									<div class="modal fade text-start" id="modal-delete-{{_id}}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+														Удалить регион</h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+														<img src="/img/icons/close-dark.svg" alt="">
+													</button>
+												</div>
+												<form class="col-12 m-auto" class="forms-sample" action="/admin/setting/delete/content/{{_id}}"
+													method="post">
+													<div class="modal-body">
+														<h5 class="text-primary">Вы правы, удалить регион?</h5>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+														<button type="submit" class="btn btn-danger">Удалить</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <h5 class="card-title text-center mt-5">Links update</h5>
+				<h5 class="card-title text-center mt-5">Обновление ссылок</h5>
 
-                <div class="container">
-                    <form class="col-12 m-auto" action="/admin/setting/update/link" method="post">
-                        <div class="modal-body row">
-                            <div class="mb-3">
-                                <label class="form-label">Phone</label>
-                                <input required type="text" class="form-control" placeholder="Название" name="phone" value="{{link.phone}}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Telegram</label>
-                                <input required type="text" class="form-control" placeholder="Название" name="telegram" value="{{link.telegram}}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Whatsapp</label>
-                                <input required type="text" class="form-control" placeholder="Название" name="watsapp" value="{{link.watsapp}}">
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    
-                    </form>
-                </div>
+				<div class="container">
+					<form class="col-12 m-auto" action="/admin/setting/update/link" method="post">
+						<div class="modal-body row">
+							<div class="mb-3">
+								<label class="form-label">Телефон</label>
+								<input required type="text" class="form-control" placeholder="Название" name="phone"
+									value="{{link.phone}}">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Телеграм</label>
+								<input required type="text" class="form-control" placeholder="Название" name="telegram"
+									value="{{link.telegram}}">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Whatsapp</label>
+								<input required type="text" class="form-control" placeholder="Название" name="watsapp"
+									value="{{link.watsapp}}">
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Обновлять</button>
+					</form>
+				</div>
 
 
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
