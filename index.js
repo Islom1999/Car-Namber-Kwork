@@ -15,10 +15,10 @@ const cors = require('cors');
 // server configuration
 const server = express()
 
-app.use(cors());
+server.use(cors()); 
 // DB configuration
 configDB()
-
+ 
 // JSON configuration
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
