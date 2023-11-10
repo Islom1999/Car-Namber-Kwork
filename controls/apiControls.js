@@ -69,7 +69,14 @@ const getNumbers = async (req, res) => {
         const {letter1, letter2, letter3, number1, number2, number3, region, regionNumber} = req.query
 
         const queryFilter = {}
+        
 
+        if (region && region !== 'All'){
+            const regionByName = await Region.findOne({name: region})
+            if(regionByName){
+                queryFilter.region = regionByName._id;
+            }
+        }
 
         if (letter1 && letter1 !== '*') queryFilter.letter1 = letter1;
         if (letter2 && letter2 !== '*') queryFilter.letter2 = letter2;
