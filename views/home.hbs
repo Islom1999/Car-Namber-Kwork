@@ -138,9 +138,11 @@
 							</div>
 							<div class="col-3">
 								<div class="wrap-item-group">
-									<h3 class="head__title num__content" data-bs-value="region">Регион</h3>
+									<h3 class="head__title num__content" data-bs-value="region">
+										Регион
+									</h3>
 									<ul class="number_menu" id="region-menu">
-										<li data-region-id="all">All</li>
+										<li data-region-id="all">Регион</li>
 										{{#if region}}
 										{{#each region}}
 										<li data-region-id="{{_id}}" id="regionOption">{{name}}</li>
@@ -149,6 +151,9 @@
 										<li>no region</li>
 										{{/if}}
 									</ul>
+									<span class="num__content-arrow">
+										<img src="/img/icons/arrow_right.svg" alt="">
+									</span>
 								</div>
 							</div>
 							<div class="col-2">
@@ -231,29 +236,29 @@
 				<div class="row g-4 row__orders">
 					{{#each content}}
 					{{#if isLeft}}
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="wrap__cards-card only-img">
-								<div class="card-img"><img src="{{image}}" alt=""></div>
-							</div>
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<div class="wrap__cards-card only-img">
+							<div class="card-img"><img src="{{image}}" alt=""></div>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="wrap__cards-card">
-								<h2 class="card-title">{{title}}</h2>
-								<p>{{description}}</p>
-							</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<div class="wrap__cards-card">
+							<h2 class="card-title">{{title}}</h2>
+							<p>{{description}}</p>
 						</div>
-						{{else}}
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="wrap__cards-card">
-								<h2 class="card-title">{{title}}</h2>
-								<p>{{description}}</p>
-							</div>
+					</div>
+					{{else}}
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<div class="wrap__cards-card">
+							<h2 class="card-title">{{title}}</h2>
+							<p>{{description}}</p>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="wrap__cards-card only-img">
-								<div class="card-img"><img src="{{image}}" alt=""></div>
-							</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<div class="wrap__cards-card only-img">
+							<div class="card-img"><img src="{{image}}" alt=""></div>
 						</div>
+					</div>
 					{{/if}}
 					{{/each}}
 				</div>

@@ -650,6 +650,13 @@ h1.title::after {
 
 .big-number .big-number__countr .number_menu {
 	top: calc(100% + 16px);
+	height: fit-content;
+	max-height: 250px;
+	overflow-y: scroll;
+}
+
+.big-number .big-number__countr .number_menu::-webkit-scrollbar {
+	display: none;
 }
 
 .big-number .big-number__countr .top-num {
@@ -719,6 +726,13 @@ h1.title::after {
 	background: #f8f8f8;
 	display: none;
 	z-index: 5;
+	height: fit-content;
+	max-height: 250px;
+	overflow-y: scroll;
+}
+
+.number_menu::-webkit-scrollbar {
+	display: none;
 }
 
 .number_menu li {
@@ -731,6 +745,16 @@ h1.title::after {
 	font-weight: 400;
 	letter-spacing: 0.9px;
 	text-transform: uppercase;
+}
+
+.number_menu li:not(:first-child) {
+	border-top: 1px solid #c5c5c5;
+}
+
+.number_menu li:hover {
+	background-color: #21422f;
+	color: #fff;
+	border-color: #c5c5c5;
 }
 
 .number_menu--close.active {
@@ -747,6 +771,10 @@ h1.title::after {
 	display: block;
 }
 
+.number_menu.active~.num__content-arrow {
+	transform: rotate(90deg);
+}
+
 #buy {
 	padding-top: 150px;
 	background-color: #f0f0f0;
@@ -760,10 +788,11 @@ h1.title::after {
 	margin-top: 50px;
 	display: flex;
 	align-items: center;
-	justify-content: end;
 	-moz-column-gap: 13px;
 	column-gap: 13px;
 	cursor: pointer;
+	width: fit-content;
+	margin-left: auto;
 }
 
 .buy-link h1 {
@@ -826,8 +855,8 @@ h1.title::after {
 .buy-wrap__cards .wrap__cards-card .card-img img {
 	width: 100%;
 	height: 100%;
-	-o-object-fit: fill;
-	object-fit: fill;
+	-o-object-fit: cover;
+	object-fit: cover;
 }
 
 .buy-wrap__cards .only-img {
@@ -899,8 +928,24 @@ h2.card-title {
 
 .decoration-cards .decoration-card .card-img {
 	width: 100%;
-	height: 100%;
+	max-width: 320px;
+	height: 181px;
 }
+
+@media (max-width: 576px) {
+	.decoration-cards .decoration-card .card-img {
+		max-width: 100%;
+		height: 250px;
+	}
+}
+
+@media (max-width: 380px) {
+	.decoration-cards .decoration-card .card-img {
+		max-width: 100%;
+		height: 200px;
+	}
+}
+
 
 .decoration-card {
 	transition: 0.2s ease-in-out;
@@ -1309,13 +1354,24 @@ h2.card-title {
 .sale-table__head .wrap-item-group {
 	position: relative;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.num__content-arrow {
+	display: flex;
+	align-items: center;
+	transform: translateY(1.5px);
+	transition: ease-in-out .2s;
 }
 
 .sale-table__head .wrap-item-group .number_menu {
 	position: absolute;
 	top: calc(100% + 5px);
 	overflow-y: scroll;
-	height: 150px;
+	height: fit-content;
+	max-height: 150px;
 	left: 0;
 	z-index: 3;
 	transform: translateX(0);
@@ -1339,6 +1395,7 @@ h2.card-title {
 	letter-spacing: 0.48px;
 	text-transform: capitalize;
 }
+
 
 @media (max-width: 1070px) {
 	#sale-table .sale-table__container {
