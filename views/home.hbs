@@ -20,7 +20,7 @@
 							<li>*</li>
 							<li>А</li>
 							<li>В</li>
-							<li>Э</li>
+							<li>Е</li>
 							<li>К</li>
 							<li>М</li>
 							<li>Н</li>
@@ -84,7 +84,7 @@
 							<li>*</li>
 							<li>А</li>
 							<li>В</li>
-							<li>Э</li>
+							<li>Е</li>
 							<li>К</li>
 							<li>М</li>
 							<li>Н</li>
@@ -101,7 +101,7 @@
 							<li>*</li>
 							<li>А</li>
 							<li>В</li>
-							<li>Э</li>
+							<li>Е</li>
 							<li>К</li>
 							<li>М</li>
 							<li>Н</li>
@@ -190,7 +190,7 @@
 									<h3 class="sale-table__region">{{region.name}}</h3>
 								</div>
 								<div class="col-2">
-									<h3 class="sale-table__price">{{amount}} ₽</h3>
+									<h3 class="sale-table__price">{{formatPrice amount currencySymbol="₽"}}</h3>
 								</div>
 								<div class="col-2"><button class="sale-teble__btn puy-modal__btn" type="button">Купить</button></div>
 							</div>
@@ -218,7 +218,7 @@
 										style="text-transform: uppercase;">{{letter1}}{{number1}}{{number2}}{{number3}}{{letter2}}{{letter3}}
 										{{regionNumber}}</span> | <span>{{region.name}}</span></h5>
 								<h5><span>Одинаковые цифры</span> | <span>Цена до: {{formatDate createdAt}}</span></h5><button
-									class="puy-modal__btn card__btn">{{amount}} ₽ / Купить</button>
+									class="puy-modal__btn card__btn">{{formatPrice amount currencySymbol="₽"}} / Купить</button>
 							</div>
 						</div>
 					</div>
@@ -281,7 +281,7 @@
 					<div class="col-xl-4 col-sm-4"><input type="text" placeholder="Ваше имя*" required name="name"></div>
 					<div class="col-xl-4 col-sm-4"><input type="number" placeholder="Телефон*" required name="phone"></div>
 					<div class="col-xl-4 col-sm-4"><input type="email" placeholder="Email" required name="email"></div>
-					<div class="col-xl-12"><textarea required placeholder="Задайте Ваш вопрос" name="message"></textarea></div>
+					<div class="col-xl-12"><textarea required placeholder="Задайте ваш вопрос" name="message"></textarea></div>
 					<div class="col-xl-12"><button type="submit" class="form-submit__btn">Отправить заявку</button>
 					</div>
 				</div>

@@ -41,16 +41,16 @@
 														<select class="form-select col" required name="letter1">
 															<option value="А">А </option>
 															<option value="В">В </option>
-															<option value="Е ">Е </option>
-															<option value="К ">К </option>
-															<option value="М ">М </option>
-															<option value="Н ">Н </option>
-															<option value="О ">О </option>
-															<option value="Р ">Р </option>
-															<option value="С ">С </option>
-															<option value="Т ">Т </option>
-															<option value="У ">У  </option>
-															<option value="Х ">Х </option>
+															<option value="Е">Е</option>
+															<option value="К">К </option>
+															<option value="М">М </option>
+															<option value="Н">Н </option>
+															<option value="О">О </option>
+															<option value="Р">Р </option>
+															<option value="С">С </option>
+															<option value="Т">Т </option>
+															<option value="У">У </option>
+															<option value="Х">Х </option>
 														</select>
 														<select class="form-select col" required name="number1">
 															<option value="0">0</option>
@@ -91,30 +91,30 @@
 														<select class="form-select col" required name="letter2">
 															<option value="А">А </option>
 															<option value="В">В </option>
-															<option value="Е ">Е </option>
-															<option value="К ">К </option>
-															<option value="М ">М </option>
-															<option value="Н ">Н </option>
-															<option value="О ">О </option>
-															<option value="Р ">Р </option>
-															<option value="С ">С </option>
-															<option value="Т ">Т </option>
-															<option value="У ">У  </option>
-															<option value="Х ">Х </option>
+															<option value="Е">Е</option>
+															<option value="К">К </option>
+															<option value="М">М </option>
+															<option value="Н">Н </option>
+															<option value="О">О </option>
+															<option value="Р">Р </option>
+															<option value="С">С </option>
+															<option value="Т">Т </option>
+															<option value="У">У </option>
+															<option value="Х">Х </option>
 														</select>
 														<select class="form-select col" required name="letter3">
 															<option value="А">А </option>
 															<option value="В">В </option>
-															<option value="Е ">Е </option>
-															<option value="К ">К </option>
-															<option value="М ">М </option>
-															<option value="Н ">Н </option>
-															<option value="О ">О </option>
-															<option value="Р ">Р </option>
-															<option value="С ">С </option>
-															<option value="Т ">Т </option>
-															<option value="У ">У  </option>
-															<option value="Х ">Х </option>
+															<option value="Е">Е</option>
+															<option value="К">К </option>
+															<option value="М">М </option>
+															<option value="Н">Н </option>
+															<option value="О">О </option>
+															<option value="Р">Р </option>
+															<option value="С">С </option>
+															<option value="Т">Т </option>
+															<option value="У">У </option>
+															<option value="Х">Х </option>
 														</select>
 														<select class="form-select col" required id="regionNumbersSelect" name="regionNumber">
 															<!-- JavaScript orqali to'ldiriladi -->
@@ -146,7 +146,7 @@
 									<ul class="number_menu">
 										<li>А</li>
 										<li>В</li>
-										<li>Э</li>
+										<li>Е</li>
 										<li>К</li>
 										<li>М</li>
 										<li>Н</li>
@@ -211,7 +211,7 @@
 									<ul class="number_menu">
 										<li>А</li>
 										<li>В</li>
-										<li>Э</li>
+										<li>Е</li>
 										<li>К</li>
 										<li>М</li>
 										<li>Н</li>
@@ -228,7 +228,7 @@
 									<ul class="number_menu">
 										<li>А</li>
 										<li>В</li>
-										<li>Э</li>
+										<li>Е</li>
 										<li>К</li>
 										<li>М</li>
 										<li>Н</li>
@@ -305,7 +305,7 @@
 														<h1>{{number2}}</h1>
 														<h1>{{number3}}</h1>
 													</div>
-													<h2>{{letter1}}{{letter2}}</h2>
+													<h2>{{letter2}}{{letter3}}</h2>
 												</div>
 												<div class="number__right">
 													<h2>{{regionNumber}}</h2>
@@ -319,7 +319,7 @@
 									<td>
 										{{region.name}}
 									</td>
-									<td>{{amount}} ₽</td>
+									<td>{{formatPrice amount currencySymbol="₽"}}</td>
 									<td>{{formatDate createdAt}}</td>
 									<td class="text-center">
 										<button type="button" class="btn rounded-1 btn-primary" data-bs-toggle="modal"
@@ -368,16 +368,16 @@
 																		</option>
 																		<option value="А">А </option>
 																		<option value="В">В </option>
-																		<option value="Е ">Е </option>
-																		<option value="К ">К </option>
-																		<option value="М ">М </option>
-																		<option value="Н ">Н </option>
-																		<option value="О ">О </option>
-																		<option value="Р ">Р </option>
-																		<option value="С ">С </option>
-																		<option value="Т ">Т </option>
-																		<option value="У ">У  </option>
-																		<option value="Х ">Х </option>
+																		<option value="Е">Е</option>
+																		<option value="К">К </option>
+																		<option value="М">М </option>
+																		<option value="Н">Н </option>
+																		<option value="О">О </option>
+																		<option value="Р">Р </option>
+																		<option value="С">С </option>
+																		<option value="Т">Т </option>
+																		<option value="У">У </option>
+																		<option value="Х">Х </option>
 																	</select>
 																	<select class="form-select col" required name="number1">
 																		<option value="{{number1}}" selected>{{number1}}
@@ -426,32 +426,32 @@
 																		</option>
 																		<option value="А">А </option>
 																		<option value="В">В </option>
-																		<option value="Е ">Е </option>
-																		<option value="К ">К </option>
-																		<option value="М ">М </option>
-																		<option value="Н ">Н </option>
-																		<option value="О ">О </option>
-																		<option value="Р ">Р </option>
-																		<option value="С ">С </option>
-																		<option value="Т ">Т </option>
-																		<option value="У ">У  </option>
-																		<option value="Х ">Х </option>
+																		<option value="Е">Е</option>
+																		<option value="К">К </option>
+																		<option value="М">М </option>
+																		<option value="Н">Н </option>
+																		<option value="О">О </option>
+																		<option value="Р">Р </option>
+																		<option value="С">С </option>
+																		<option value="Т">Т </option>
+																		<option value="У">У </option>
+																		<option value="Х">Х </option>
 																	</select>
 																	<select class="form-select col" required name="letter3">
 																		<option value="{{letter3}}" selected>{{letter3}}
 																		</option>
 																		<option value="А">А </option>
 																		<option value="В">В </option>
-																		<option value="Е ">Е </option>
-																		<option value="К ">К </option>
-																		<option value="М ">М </option>
-																		<option value="Н ">Н </option>
-																		<option value="О ">О </option>
-																		<option value="Р ">Р </option>
-																		<option value="С ">С </option>
-																		<option value="Т ">Т </option>
-																		<option value="У ">У  </option>
-																		<option value="Х ">Х </option>
+																		<option value="Е">Е</option>
+																		<option value="К">К </option>
+																		<option value="М">М </option>
+																		<option value="Н">Н </option>
+																		<option value="О">О </option>
+																		<option value="Р">Р </option>
+																		<option value="С">С </option>
+																		<option value="Т">Т </option>
+																		<option value="У">У </option>
+																		<option value="Х">Х </option>
 																	</select>
 																	<select class="form-select col" required id="regionNumber-{{_id}}"
 																		name="regionNumber">
