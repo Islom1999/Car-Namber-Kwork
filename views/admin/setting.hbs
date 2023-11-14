@@ -3,7 +3,6 @@
 		<div class="col-12">
 			<div class="card-body">
 				<h5 class="card-title text-center">Обновление заголовка</h5>
-
 				<section id="home" style="background: url('{{header.image}}') right/cover no-repeat !important;">
 					<div class="container">
 						<div class="home-wrap">
@@ -14,15 +13,16 @@
 							<p>{{header.description}}</p>
 						</div>
 					</div>
-				</section><!-- home end --><!-- plate nomer start -->
+				</section>
+				<!-- home end -->
+				<!-- plate nomer start -->
 				<div class="my-3 text-center">
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-						data-bs-target="#modal-update-header">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-update-header">
 						Обновить заголовок
 					</button>
 					<!-- Modal -->
-					<div class="modal fade text-start" id="modal-update-header" tabindex="-1"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade text-start" id="modal-update-header" tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -37,30 +37,26 @@
 									<div class="modal-body row">
 										<div class="mb-3">
 											<label class="form-label">Изображение</label>
-											<input type="file" class="form-control" placeholder="Название региона"
-												name="image">
+											<input type="file" class="form-control" placeholder="Название региона" name="image">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Заголовок</label>
-											<textarea required type="text" class="form-control"
-												placeholder="Название региона" name="title"
+											<textarea required type="text" class="form-control" placeholder="Название региона" name="title"
 												value="">{{header.title}}</textarea>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Кнопка</label>
-											<input required type="text" class="form-control"
-												placeholder="Название региона" name="button" value="{{header.button}}">
+											<input required type="text" class="form-control" placeholder="Название региона" name="button"
+												value="{{header.button}}">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Описание</label>
-											<textarea required type="text" class="form-control"
-												placeholder="Название региона" name="description"
-												value="">{{header.description}}</textarea>
+											<textarea required type="text" class="form-control" placeholder="Название региона"
+												name="description" value="">{{header.description}}</textarea>
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Назад</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 										<button type="submit" class="btn btn-primary">Обновлять</button>
 									</div>
 								</form>
@@ -68,7 +64,6 @@
 						</div>
 					</div>
 				</div>
-
 				<h5 class="card-title text-center mt-5">Обновление контента</h5>
 				<div class="my-3 text-center">
 					<button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal"
@@ -76,8 +71,8 @@
 						Create Content
 					</button>
 					<!-- Modal -->
-					<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -92,23 +87,21 @@
 									<div class="modal-body row">
 										<div class="mb-3">
 											<label class="form-label">Изображение</label>
-											<input required type="file" class="form-control"
-												placeholder="Название региона" name="image">
+											<input required type="file" class="form-control" placeholder="Название региона" name="image">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Заголовок</label>
-											<textarea required type="text" class="form-control"
-												placeholder="Название региона" name="title" value=""></textarea>
+											<textarea required type="text" class="form-control" placeholder="Название региона" name="title"
+												value=""></textarea>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Описание</label>
-											<textarea required type="text" class="form-control"
-												placeholder="Название региона" name="description" value=""></textarea>
+											<textarea required type="text" class="form-control" placeholder="Название региона"
+												name="description" value=""></textarea>
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Назад</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 										<button type="submit" class="btn btn-primary">Update</button>
 									</div>
 								</form>
@@ -150,7 +143,7 @@
 								<div class="my-3 text-center">
 									<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 										data-bs-target="#modal-update-{{_id}}">
-										Update Content
+										Обновлять содержимое
 									</button>
 									<!-- Modal -->
 									<div class="modal fade text-start" id="modal-update-{{_id}}" tabindex="-1"
@@ -160,43 +153,36 @@
 												<div class="modal-header">
 													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
 														Содержание</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal"
-														aria-label="Close">
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 														<img src="/img/icons/close-dark.svg" alt="">
 													</button>
 												</div>
-												<form class="col-12 m-auto"
-													action="/admin/setting/update/content/{{_id}}" method="post"
+												<form class="col-12 m-auto" action="/admin/setting/update/content/{{_id}}" method="post"
 													enctype="multipart/form-data">
 													<div class="modal-body row">
 														<div class="mb-3">
 															<label class="form-label">Изображение</label>
-															<input type="file" class="form-control"
-																placeholder="Название региона" name="image">
+															<input type="file" class="form-control" placeholder="Название региона" name="image">
 														</div>
 														<div class="mb-3">
 															<label class="form-label">Заголовок</label>
-															<textarea required type="text" class="form-control"
-																placeholder="Название региона" name="title"
-																value="">{{title}}</textarea>
+															<textarea required type="text" class="form-control" placeholder="Название региона"
+																name="title" value="">{{title}}</textarea>
 														</div>
 														<div class="mb-3">
 															<label class="form-label">Описание</label>
-															<textarea required type="text" class="form-control"
-																placeholder="Название региона" name="description"
-																value="">{{description}}</textarea>
+															<textarea required type="text" class="form-control" placeholder="Название региона"
+																name="description" value="">{{description}}</textarea>
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary"
-															data-bs-dismiss="modal">Назад</button>
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 														<button type="submit" class="btn btn-primary">Update</button>
 													</div>
 												</form>
 											</div>
 										</div>
 									</div>
-
 									<button type="button" class="btn btn-danger" data-bs-toggle="modal"
 										data-bs-target="#modal-delete-{{_id}}">
 										Удалит
@@ -209,19 +195,17 @@
 												<div class="modal-header">
 													<h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
 														Удалить регион</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal"
-														aria-label="Close">
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 														<img src="/img/icons/close-dark.svg" alt="">
 													</button>
 												</div>
-												<form class="col-12 m-auto" class="forms-sample"
-													action="/admin/setting/delete/content/{{_id}}" method="post">
+												<form class="col-12 m-auto" class="forms-sample" action="/admin/setting/delete/content/{{_id}}"
+													method="post">
 													<div class="modal-body">
 														<h5 class="text-primary">Вы правы, удалить регион?</h5>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary"
-															data-bs-dismiss="modal">Назад</button>
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
 														<button type="submit" class="btn btn-danger">Удалить</button>
 													</div>
 												</form>
@@ -234,9 +218,7 @@
 						</div>
 					</div>
 				</div>
-
 				<h5 class="card-title text-center mt-5">Обновление ссылок</h5>
-
 				<div class="container">
 					<form class="col-12 m-auto" action="/admin/setting/update/link" method="post">
 						<div class="modal-body row">
@@ -259,9 +241,6 @@
 						<button type="submit" class="btn btn-primary">Обновлять</button>
 					</form>
 				</div>
-
-
-
 			</div>
 		</div>
 	</div>
