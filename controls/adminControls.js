@@ -17,6 +17,7 @@ const getAdmin = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.redirect("/admin");
   }
 };
 const createAdmin = async (req, res) => {
@@ -25,6 +26,7 @@ const createAdmin = async (req, res) => {
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin");
   }
 };
 const deleteAdmin = async (req, res) => {
@@ -33,6 +35,7 @@ const deleteAdmin = async (req, res) => {
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin");
   }
 };
 const updateAdmin = async (req, res) => {
@@ -41,21 +44,46 @@ const updateAdmin = async (req, res) => {
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin");
   }
 };
 
 const getNumbers = async (req, res) => {
   try {
-    const total = await Number.countDocuments({ ...req.query });
-    const limit = req.query.limit || 20;
+    const limit = req.query.limit || 6;
     const page = req.query.page || 1;
 
-    const number = await Number.find({ ...req.query })
+    const {
+      letter1,
+      letter2,
+      letter3,
+      number1,
+      number2,
+      number3,
+      regionNumber,
+    } = req.query;
+
+    const queryFilter = {};
+
+    if (letter1 && letter1 !== "*") queryFilter.letter1 = letter1;
+    if (letter2 && letter2 !== "*") queryFilter.letter2 = letter2;
+    if (letter3 && letter3 !== "*") queryFilter.letter3 = letter3;
+    if (number1 && number1 !== "*") queryFilter.number1 = number1;
+    if (number2 && number2 !== "*") queryFilter.number2 = number2;
+    if (number3 && number3 !== "*") queryFilter.number3 = number3;
+    if (regionNumber && regionNumber !== "*")
+      queryFilter.regionNumber = regionNumber;
+
+    const total = await Number.countDocuments({ ...queryFilter });
+
+    const number = await Number.find({ ...queryFilter })
       .sort({ createdAt: -1 })
       .skip(page * limit - limit)
       .limit(limit)
       .populate("region")
       .lean();
+
+    console.log(number);
 
     const region = await Region.find().lean();
 
@@ -73,6 +101,7 @@ const getNumbers = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/numbers");
   }
 };
 
@@ -87,6 +116,7 @@ const getRegion = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/region");
   }
 };
 
@@ -114,6 +144,7 @@ const getMessage = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/message");
   }
 };
 
@@ -139,6 +170,7 @@ const createRegion = async (req, res) => {
     res.redirect("/admin/region");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/region");
   }
 };
 
@@ -164,6 +196,7 @@ const updateRegion = async (req, res) => {
     res.redirect("/admin/region");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/region");
   }
 };
 
@@ -174,13 +207,14 @@ const deleteRegion = async (req, res) => {
     res.redirect("/admin/region");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/region");
   }
 };
 
 // numbers
 const createNumbers = async (req, res) => {
   try {
-    const image = "/upload/number-image/" + req.file.filename;
+    const image = "/upload/number-image/" + req?.file?.filename;
     let { letter1, letter2, letter3 } = req.body;
 
     letter1 = letter1.toUpperCase();
@@ -192,6 +226,7 @@ const createNumbers = async (req, res) => {
     res.redirect("/admin/numbers");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/numbers");
   }
 };
 
@@ -221,6 +256,7 @@ const updateNumbers = async (req, res) => {
     res.redirect("/admin/numbers");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/numbers");
   }
 };
 
@@ -231,6 +267,7 @@ const deleteNumbers = async (req, res) => {
     res.redirect("/admin/numbers");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/numbers");
   }
 };
 
@@ -242,6 +279,7 @@ const deleteMessage = async (req, res) => {
     res.redirect("/admin/message");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/message");
   }
 };
 
@@ -269,42 +307,47 @@ const getSetting = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 const updateHeader = async (req, res) => {
   try {
     const header = await Header.findOne().lean();
-	
+
     let image = header?.image;
 
     if (req.file?.filename) {
       image = "/upload/number-image/" + req.file.filename;
     }
 
-	if(!header){
-		await Header.create({ ...req.body, image: image ? image : "/upload/number-image/" });
-	}else{
-		await Header.findOneAndUpdate({}, { ...req.body, image });
-	}
-
+    if (!header) {
+      await Header.create({
+        ...req.body,
+        image: image ? image : "/upload/number-image/",
+      });
+    } else {
+      await Header.findOneAndUpdate({}, { ...req.body, image });
+    }
 
     res.redirect("/admin/setting");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 
 const updateLink = async (req, res) => {
   try {
-	const link = await Link.findOne()
-	if(!link){
-		await Link.create({ ...req.body });
-	}else{
-		await Link.findOneAndUpdate({}, { ...req.body });
-	}
+    const link = await Link.findOne();
+    if (!link) {
+      await Link.create({ ...req.body });
+    } else {
+      await Link.findOneAndUpdate({}, { ...req.body });
+    }
     res.redirect("/admin/setting");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 
@@ -321,6 +364,7 @@ const createContent = async (req, res) => {
     res.redirect("/admin/setting");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 
@@ -338,6 +382,7 @@ const updateContent = async (req, res) => {
     res.redirect("/admin/setting");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 
@@ -348,6 +393,7 @@ const deleteContent = async (req, res) => {
     res.redirect("/admin/setting");
   } catch (error) {
     console.log(error);
+    res.redirect("/admin/setting");
   }
 };
 
