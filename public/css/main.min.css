@@ -1310,6 +1310,12 @@ h2.card-title {
 	margin-top: 60px;
 }
 
+@media (max-width: 850px) {
+	#sale-table {
+		overflow-x: scroll;
+	}
+}
+
 #sale-table .sale-table__container {
 	max-width: calc(100% - 150px);
 	margin: 0 auto;
@@ -1405,10 +1411,7 @@ h2.card-title {
 		width: 100%;
 	}
 
-	.sale-table__body .table__body-item {
-		min-width: 700px;
-	}
-
+	.sale-table__body,
 	.sale-table__head {
 		min-width: 700px;
 	}
@@ -1465,10 +1468,6 @@ h2.card-title {
 	font-weight: 400;
 	letter-spacing: 1.2px;
 	text-transform: uppercase;
-}
-
-.sale-table__body {
-	overflow-x: scroll;
 }
 
 .item-car__number .number__left .item-min__number {
