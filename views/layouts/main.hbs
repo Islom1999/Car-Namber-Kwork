@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{title}}</title><!-- Fond -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{{title}}</title><!-- Fond -->
 
-    {{#if isAdmin}}
-        {{>adminLinks}}
-        {{else}}
-    {{/if}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="/fonts/font.css">
-        <link rel="stylesheet" href="/libs/grid.css">
-        <link rel="stylesheet" href="/css/main.min.css">
-
+	{{#if isAdmin}}
+	{{>adminLinks}}
+	{{else}}
+	{{/if}}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="/fonts/font.css">
+	<link rel="stylesheet" href="/libs/grid.css">
+	<link rel="stylesheet" href="/css/main.min.css">
+	<link rel="icon" type="image/x-icon" href="/img/CarPlate.png">
 </head>
+
 <body>
 
-    {{#if islLoginPage}}
-        {{{body}}}
-    {{else}}
-        {{#if isAdmin}}
-                {{>adminNavbar}}
-                {{>adminSlidebar}}
+	{{#if islLoginPage}}
+	{{{body}}}
+	{{else}}
+	{{#if isAdmin}}
+	{{>adminNavbar}}
+	{{>adminSlidebar}}
 
-                <main id="main" class="main">
-                    <div class="pagetitle">
-                        <h1>{{title}}</h1>
-                        <nav>
-                            <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/admin/numbers">Numbers</a></li>
-                            <li class="breadcrumb-item active">{{title}}</li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <section class="section dashboard">
-                        {{{body}}}
-                    </section>
-                </main>
+	<main id="main" class="main">
+		<div class="pagetitle">
+			<h1>{{title}}</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/admin/numbers">Numbers</a></li>
+					<li class="breadcrumb-item active">{{title}}</li>
+				</ol>
+			</nav>
+		</div>
+		<section class="section dashboard">
+			{{{body}}}
+		</section>
+	</main>
 
-                {{>adminFooter}}
-                {{>adminJs}}
-                <script src="/js/main.min.admin.js"></script>
-            {{else}}
-                {{>navbar}}
-                {{{body}}}
-                {{>footer}}
-                <script src="/js/main.min.js"></script>
-        {{/if}}
-    {{/if}}
+	{{>adminFooter}}
+	{{>adminJs}}
+	<script src="/js/main.min.admin.js"></script>
+	{{else}}
+	{{>navbar}}
+	{{{body}}}
+	{{>footer}}
+	<script src="/js/main.min.js"></script>
+	{{/if}}
+	{{/if}}
 
 </body>
 </html>

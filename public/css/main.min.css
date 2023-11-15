@@ -929,20 +929,21 @@ h2.card-title {
 .decoration-cards .decoration-card .card-img {
 	width: 100%;
 	max-width: 320px;
-	height: 181px;
+	height: 75px;
+	border-radius: 0;
 }
 
 @media (max-width: 576px) {
 	.decoration-cards .decoration-card .card-img {
 		max-width: 100%;
-		height: 250px;
+		height: 75px;
 	}
 }
 
 @media (max-width: 380px) {
 	.decoration-cards .decoration-card .card-img {
 		max-width: 100%;
-		height: 200px;
+		height: 70px;
 	}
 }
 
@@ -952,7 +953,6 @@ h2.card-title {
 }
 
 .decoration-card .card-img img {
-	border-radius: 20px;
 	width: 100%;
 	height: 100%;
 	-o-object-fit: fill;
@@ -1308,7 +1308,6 @@ h2.card-title {
 
 #sale-table {
 	margin-top: 60px;
-	overflow-x: scroll;
 }
 
 #sale-table .sale-table__container {
@@ -1402,7 +1401,14 @@ h2.card-title {
 		max-width: 90%;
 	}
 
-	.sale-table__body,
+	.sale-table__body {
+		width: 100%;
+	}
+
+	.sale-table__body .table__body-item {
+		min-width: 700px;
+	}
+
 	.sale-table__head {
 		min-width: 700px;
 	}
@@ -1459,6 +1465,10 @@ h2.card-title {
 	font-weight: 400;
 	letter-spacing: 1.2px;
 	text-transform: uppercase;
+}
+
+.sale-table__body {
+	overflow-x: scroll;
 }
 
 .item-car__number .number__left .item-min__number {
