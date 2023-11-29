@@ -203,31 +203,6 @@
 		</div>
 	</div>
 </section><!-- plate nomer end --><!-- decoration start -->
-<section id="decoration">
-	<div class="container">
-		<h1 class="decoration__title">Оформление номера <mark>за 3 часа</mark></h1>
-		<div class="decoration-wrap">
-			<div class="decoration-cards">
-				<div class="row g-xl-4 g-sm-3 g-2" id="decoration-cards">
-					{{#each number}}
-					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-						<div class="decoration-card">
-							<div class="card-img"><img src="{{image}}" alt=""></div>
-							<div class="card-about">
-								<h5><span
-										style="text-transform: uppercase;">{{letter1}}{{number1}}{{number2}}{{number3}}{{letter2}}{{letter3}}
-										{{regionNumber}}</span> | <span>{{region.name}}</span></h5>
-								<h5><span>Одинаковые цифры</span> | <span>Цена до: {{formatDate createdAt}}</span></h5><button
-									class="puy-modal__btn card__btn">{{formatPrice amount currencySymbol="₽"}} / Купить</button>
-							</div>
-						</div>
-					</div>
-					{{/each}}
-				</div>
-			</div><button type="button" class="decoration-wrap__btn">Больше номеров</button>
-		</div>
-	</div>
-</section><!-- decoration end --><!-- buy start -->
 <section id="buy">
 	<div class="container">
 		<h1 class="title">ВЫКYП</h1>

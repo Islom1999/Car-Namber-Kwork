@@ -50,7 +50,7 @@ const updateAdmin = async (req, res) => {
 
 const getNumbers = async (req, res) => {
   try {
-    const limit = req.query.limit || 6;
+    const limit = req.query.limit || 15;
     const page = req.query.page || 1;
 
     const {

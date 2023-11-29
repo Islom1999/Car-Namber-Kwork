@@ -8,7 +8,7 @@ const Link = require('../models/links')
 const getHome = async(req, res) => {
     try {
         const total = await Number.countDocuments({ ...req.query });
-		const limit = req.query.limit || 6;
+		const limit = req.query.limit || 12;
 		const page = req.query.page || 1;
 
 		const number = await Number.find({ ...req.query })
