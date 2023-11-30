@@ -500,7 +500,7 @@ html button {
 
 @media (max-width: 1070px) {
 	#plate .plate-wrap {
-		padding: 30px;
+		padding: 20px;
 	}
 }
 
@@ -1417,6 +1417,37 @@ h2.card-title {
 	}
 }
 
+@media (max-width: 834px) {
+	#sale-table .sale-table__container {
+		max-width: 100%;
+	}
+
+	#sale-table .sale-table__container .row>div {
+		padding: 5px;
+	}
+
+	#sale-table .sale-table__container .row>div:first-child {
+		order: 1;
+	}
+
+	#sale-table .sale-table__container .row>div:nth-child(2) {
+		order: 4;
+	}
+
+	#sale-table .sale-table__container .row>div:nth-child(3) {
+		order: 2;
+	}
+
+	#sale-table .sale-table__container .row>div:nth-child(4) {
+		order: 3;
+	}
+
+	#sale-table .sale-table__container .row {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
 .sale-table__body .table__body-item {
 	padding: 20px 0;
 	border-bottom: 1px solid #c5c5c5;
@@ -1541,3 +1572,48 @@ h2.card-title {
 }
 
 /*# sourceMappingURL=main.min.css.map */
+@media (max-width: 430px) {
+	.scale-block {
+		transform: scale(0.5);
+	}
+
+	#sale-table .sale-table__container-two .row>div:nth-child(3) {
+		transform: translateX(-150px);
+	}
+
+	#sale-table .sale-table__container-two .row>div:nth-child(2) {
+		transform: translateX(-150px);
+	}
+
+	.sale-table__body .table__body-item {
+		padding: 0;
+	}
+
+	.row-x {
+		transform: translateX(-69px);
+	}
+
+	.row-x>div:not(:first-child) {
+		transform: translateX(calc(-100px + 20px));
+	}
+
+	.sale-teble__btn {
+		transform: scale(0.8);
+	}
+
+	#sale-table .sale-table__container .row>div:nth-child(4) {
+		transform: translateX(-100px);
+	}
+}
+
+@media (max-width: 430px) {
+	#plate .container {
+		padding: 0;
+	}
+}
+
+@media (max-width:375px) {
+	#plate .plate-wrap {
+		padding: 50px 10px;
+	}
+}
