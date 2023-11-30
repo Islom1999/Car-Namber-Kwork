@@ -1553,6 +1553,7 @@ h2.card-title {
 	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 0.56px;
+	white-space: nowrap;
 }
 
 .sale-teble__btn {
@@ -1607,7 +1608,7 @@ h2.card-title {
 }
 
 @media (max-width: 430px) {
-	#plate .container {
+	#plate .container__media {
 		padding: 0;
 	}
 }
