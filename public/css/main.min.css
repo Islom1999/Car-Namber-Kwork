@@ -1553,7 +1553,6 @@ h2.card-title {
 	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 0.56px;
-	white-space: nowrap;
 }
 
 .sale-teble__btn {
@@ -1576,6 +1575,10 @@ h2.card-title {
 @media (max-width: 430px) {
 	.scale-block {
 		transform: scale(0.5);
+	}
+
+	.sale-table__region {
+		white-space: nowrap;
 	}
 
 	#sale-table .sale-table__container-two .row>div:nth-child(3) {
