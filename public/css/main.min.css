@@ -1586,7 +1586,8 @@ h2.card-title {
 	}
 
 	#sale-table .sale-table__container-two .row>div:nth-child(2) {
-		transform: translateX(-150px);
+		position: relative;
+		left: -150px;
 	}
 
 	.sale-table__body .table__body-item {
